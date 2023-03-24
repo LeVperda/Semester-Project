@@ -1,11 +1,4 @@
 import mysql.connector as mysql
-
-
-def test(data):
-    for x in range(len(data)):
-            
-        print(x)
-
  
 def upload_berryfile_to_mysql(data):
     
@@ -18,7 +11,3 @@ def upload_berryfile_to_mysql(data):
         id += 1
 
         print(sql)
-
-def test():
-    for x in range(10):
-        print("kissa")
