@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, jsonify
 import mysql.connector as mysql
 import functions_for_api as functions
 
@@ -11,9 +11,6 @@ mydb = mysql.connect(
     database="berry_nice",
     auth_plugin="mysql_native_password"
 )
-
-# cursor for making the changes
-mycursor = mydb.cursor()
 
 app = Flask(__name__)
 
