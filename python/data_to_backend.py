@@ -147,6 +147,9 @@ mycursor.executemany(sql, val)
 # commit
 mydb.commit()
 
+# close
+mydb.close()
+
 # print the amount of rows inserted
 print(mycursor.rowcount, "record inserted.")
 
