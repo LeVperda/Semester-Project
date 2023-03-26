@@ -8,7 +8,7 @@ mydb = mysql.connect(
     port="3306",
     user="root",
     password="Kg39562K!jkm",
-    database="mybusiness",
+    database="berry_nice",
     auth_plugin="mysql_native_password"
 )
 
@@ -19,8 +19,8 @@ app = Flask(__name__)
 
 app.route('/')
 
-# get one customer with matching id from the mybusiness.customer
-@app.route('/customers/<customer_id>')
-def get_specific_customer(customer_id):
-    my_customer = functions.getSpecificCustomer(customer_id)
-    return jsonify(my_customer), 200
+# get all customers from the mybusiness.customer
+@app.route('/berry_data')
+def get_data():
+    data = functions.getalldata()
+    return jsonify(data)

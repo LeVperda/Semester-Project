@@ -18,10 +18,10 @@ def create_dict(result):
     dict_data = []
 
     # column names as tuple
-    culumn_names = mycursor.column_names
+    column_names = mycursor.column_names
 
     # loops trough all the rows
-    for r in myresult:
+    for r in result:
         row_zip = zip(column_names, r)
         row_dict = dict(row_zip)
         dict_data.append(row_dict)
