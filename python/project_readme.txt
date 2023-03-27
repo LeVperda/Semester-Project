@@ -10,5 +10,16 @@ Installments for these programs to run:
 - pandas
 - seaborn
 - mysql.connector
+- flask
+
+
+to get the Flask work
+
+Terminal commands:
+
+- set FLASK_DEBUG=true
+- set FLASK_APP=BerryNiceApp.py
+- flask run
+
 
 

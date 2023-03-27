@@ -21,3 +21,7 @@ app.route('/')
 def get_data():
     data = functions.getalldata()
     return jsonify(data)
+
+
+if __name__ == '__main__':
+    app.run()
