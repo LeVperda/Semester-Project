@@ -1,6 +1,8 @@
 # imported mysql.connector to be able to connect the database
 import mysql.connector as mysql
 
+import random
+
 
 # connecting to local host
 mydb = mysql.connect(
@@ -38,3 +40,31 @@ def getalldata():
 
     # creating a dictionary from fetched data
     return create_dict(myresult)
+
+def posting_berry_data(data):
+
+    print(data)
+
+    # making the data to variables
+    id = random(20000, 99999)
+    xcord = data['x_cord']
+    ycord = data['y_cord']
+    forest_dev = data['dev_class']
+    main_tree = data['tree_type']
+    berry = data['berry']
+    date = data['date']
+
+
+    # sql command for inserting to wanted database.
+    sql = "INSERT INTO berryes (log_id, berry, main_tree_type, forest_development_class, x_cord, y_cord, year, month, day, week_number) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+    # given values from the website
+    #val = [(id), (berry), (main_tree), (forest_dev), (xcord), (ycord), (forest_dev), (forest_dev), (forest_dev), (forest_dev)]
+
+    # executing the command and the values
+    #mycursor.execute(sql, val)
+
+    # returns these to postman after inserting the data to database
+    #return f"salesman_id value is: {salesman_id}<br>" \
+    #       f"name value is: {name}<br>" \
+    #       f"city value is: {city}<br>" \
+    #       f"commission value is: {commission}<br>"

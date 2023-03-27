@@ -26,39 +26,135 @@
             <div class="col-2 col-s-2"><ul><li><a href="vision">Vision</a></li></ul></div>
         </div>
     </div>
+
     <form>
-        <label for="berry">Log id:</label><br>
-        <input type="text" id="berry"><br>
-
-        <label for="Log_id">Log id:</label><br>
-        <input type="text" id="berry"><br>
-
-        <label for="berry">berry type:</label><br>
-        <input type="text" id="berry"><br>
-
-        <label for="berry">berry type:</label><br>
-        <input type="text" id="berry"><br>
-
-        <label for="berry">berry type:</label><br>
-        <input type="text" id="berry"><br>
+        <div id="first">
         
-        <label for="berry">berry type:</label><br>
-        <input type="text" id="berry"><br>
+            <label for="x">X-cordinate:</label><br>
+            <input type="text" id="x"><br>
 
-        <label for="berry">berry type:</label><br>
-        <input type="text" id="berry"><br>
+            <label for="Y">Y-cordinate:</label><br>
+            <input type="text" id="y"><br>
+        </div>
 
-        <label for="berry">berry type:</label><br>
-        <input type="text" id="berry"><br>
+        <div id="second">
+            <label for="dev_class">forest_development_class:</label>
+            <select name="dev_class" id="dev_class">
+                <option value="">value</option>
+                <option value="clearing">clearing</option>
+                <option value="seedling">seedling</option>
+                <option value="old">old</option>
+                <option value="plantation">plantation</option>
+            </select>
+            
+            <br>
+            <br>
 
-        <label for="berry">berry type:</label><br>
-        <input type="text" id="berry"><br>
+            <label for="main_tree_type">Main tree type:</label>
+            <select name="main_tree_type" id="main_tree_type">
+                <option value="">value</option>
 
-        <label for="berry">berry type:</label><br>
-        <input type="text" id="berry"><br>
+                <option value="birch">birch</option>
+                <option value="spruce">spruce</option>
+                <option value="pine">pine</option>
+                <option value="other">other</option>
+
+                <option value="swamp">swamp</option>
+                <option value="mixed">mixed</option>
+                <option value="larch">larch</option>
+                <option value="open">open</option>
+            </select>
+
+            <br>
+            <br>
+
+            <label for="berry">Berry type:</label>
+            <select name="berry" id="berry">
+
+                <option value="">value</option>
+                <option value="bilberry">bilberry</option>
+                <option value="lingonberry">lingonberry</option>
+                <option value="cloudberry">cloudberry</option>
+
+            </select>
+
+        </div>
+
+        <div id="third">
+            <label for="year">Year:</label>
+            <input type="date" id="date">
+        
+        </div>
+
+        <button onclick="submit_backend()" type="button">Submit</button>
+
 
     </form>
-    
+    <br>
+
+    <table id="table"></table>
+
+    <script>
+        
+
+
+        function submit_backend() {
+            
+            let x_cord = document.getElementById("x").value
+            let y_cord = document.getElementById("y").value
+
+            let forest_development_class = document.getElementById("dev_class").value
+            let tree_type = document.getElementById("main_tree_type").value
+            let berry = document.getElementById("berry").value
+
+            let date_time = new Date(document.getElementById("date").value);
+            
+            var htmlText = "<th>X-cordinate</th><th>Y-cordinate</th><th>Forest development class</th><th>Tree type</th><th>Berry</th>"
+
+            htmlText += `<tr><td>${x_cord}</td><td>${y_cord}</td><td>${forest_development_class}</td><td>${tree_type}</td><td>${berry}</td>`
+
+            document.getElementById("table").innerHTML = htmlText
+            
+            post_data(x_cord, y_cord, forest_development_class, tree_type, berry, date_time)
+            
+        }
+
+        function post_data(x_cord, y_cord, forest_development_class, tree_type, berry, date_time) {
+
+            alert("sending data")
+
+            console.log("x cord: " + x_cord)
+            console.log("y cord: " + y_cord)
+            console.log("forest_development_class: " + forest_development_class)
+            console.log("Tree type: " + tree_type)
+            console.log("Berry: " + berry)
+            console.log("Datetime: " + date_time)
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open("POST", "/berry_data_post", true);
+            xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+
+            var j_data = {
+                "x_cord":`${x_cord}`,
+                "y_cord":`${y_cord}`,
+                "dev_class":`${forest_development_class}`,
+                "tree_type":`${tree_type}`,
+                "berry":`${berry}`,
+                "date":`${date}`,
+            };
+            xhr.send(JSON.stringify(j_data));
+
+
+            
+        }
+
+
+    </script>
+
+
+
+ 
     
 
     <footer>

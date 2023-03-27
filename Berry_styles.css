@@ -89,19 +89,14 @@ table,tr,td {
             margin-right: auto;
             padding: 15px;
 
-            empty-cells: hide;
-
-
-
 }
 
 th {
     height: 25px;
-    empty-cells: hide;
 }
 
 
-/*  */
+/* For responsive website */
 @media only screen and (min-width: 600px) {
     /* For tablets: */
     .col-s-1 {width: 8.33%;}
@@ -138,9 +133,63 @@ ul {
     list-style-type: none;
 }
 
+/*  */
+
+/* For insert data table */
 form {
-    padding: 10px;
-    text-align: left;
-    width: 50%;
+    padding: 20px;
+    padding-left: 20px;
+    
+    width: 40%;
+    height: 250px;
+
+    margin-left: auto;
+    margin-right: auto;
+    
+
+    text-align: center;
+
+
+    border: 1px solid black;
     
 }
+
+#first {
+    padding: 10px;
+    display: inline-block;
+    width: 50%;
+    float: left;
+
+
+
+    border: 1px solid red;
+}
+
+#second {
+    padding: 10px;
+    display: inline-block;
+    width: 50%;
+
+    float: left;
+
+
+
+    border: 1px solid green;
+}
+
+#third {
+    padding: 10px;
+    display: inline-block;
+    width: 100%;
+    float: left;
+
+
+    border: 1px solid blue; 
+}
+
+form button {
+    float: right;
+    bottom: auto;
+}
+
+/*  */
