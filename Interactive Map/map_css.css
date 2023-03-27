@@ -1,0 +1,22 @@
+path:hover {
+    fill: blue;
+    transition: fill 0.3s;
+}
+
+#mapsection {
+    width: 50%;
+    height: auto;
+    fill: white;
+    stroke: black;
+    stroke-width: 1px;
+}
+
+svg text {
+    text-anchor: middle;
+    fill: black;
+}
+
+textPath {
+    fill: black;
+    font-size: 16px;
+}
