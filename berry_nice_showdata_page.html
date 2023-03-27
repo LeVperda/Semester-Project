@@ -27,17 +27,45 @@
         </div>
     </div>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-     <button id="get_data">get data</button>
 
-     <table id="data">data</table>
+    <button id="get_data" onclick="showTable()">get data</button>
+    
+     <table id="data"></table>
 
-     
+     <script>
+
+        var table = "<th>Log id</th><th>Berry</th><th>forest_development_class</th><th>main_tree_type</th><th>year</th><th>month</th><th>day</th><th>week_number</th><th>x_cord</th><th>y_cord</th>";
+
+        // functio for fetching the data from the api
+        function showTable() {
+            let url = "http://127.0.0.1:5000/berry_data"
+
+
+            fetch(url)
+                .then(Response => Response.json())
+                .then(data => createTable(data))
+        }
+
+        console.log(showTable)
+
+        var test = 1
+
+        function createTable(data) {
+
+            var table = "<th>Log id</th><th>Berry</th><th>forest_development_class</th><th>main_tree_type</th><th>year</th><th>month</th><th>day</th><th>week_number</th><th>x_cord</th><th>y_cord</th>";
+
+
+            for (i = 0; i < data.length; i++) {
+                
+                table += `<tr><td>${data[i].log_id}</td><td>${data[i].berry}</td><td>${data[i].forest_development_class}</td><td>${data[i].main_tree_type}</td><td>${data[i].year}</td><td>${data[i].month}</td><td>${data[i].day}</td><td>${data[i].week_number}</td><td>${data[i].x_cord}</td><td>${data[i].y_cord}</td></tr>`
+
+            }
+
+            document.getElementById("data").innerHTML = table
+  
+        }
+
+     </script>
 
 
 

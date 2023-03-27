@@ -78,6 +78,10 @@ iframe {
     float:left;
 }
 
+table,tr,td,th {
+            border: 1px solid black;
+        }
+
 /*  */
 @media only screen and (min-width: 600px) {
     /* For tablets: */

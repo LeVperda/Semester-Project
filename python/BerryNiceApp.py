@@ -1,6 +1,7 @@
 from flask import Flask, jsonify
 import mysql.connector as mysql
 import functions_for_api as functions
+from flask_cors import CORS
 
 # connecting to the mysql database
 mydb = mysql.connect(
@@ -15,6 +16,7 @@ mydb = mysql.connect(
 app = Flask(__name__)
 
 app.route('/')
+CORS(app)
 
 # get all customers from the mybusiness.customer
 @app.route('/berry_data')
