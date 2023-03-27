@@ -137,3 +137,10 @@ th {
 ul {
     list-style-type: none;
 }
+
+form {
+    padding: 10px;
+    text-align: left;
+    width: 50%;
+    
+}
