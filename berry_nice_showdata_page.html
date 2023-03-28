@@ -39,29 +39,34 @@
 
         // functio for fetching the data from the api
         function showTable() {
+
+            // url address
             let url = "http://127.0.0.1:5000/berry_data"
 
-
+            // fetch the data from backend
             fetch(url)
                 .then(Response => Response.json())
                 .then(data => createTable(data))
         }
 
+        // console log
         console.log(showTable)
 
-        var test = 1
-
+        // function for creating the table
         function createTable(data) {
 
+            // header for the table
             var table = "<th>Log id</th><th>Berry</th><th>forest_development_class</th><th>main_tree_type</th><th>year</th><th>month</th><th>day</th><th>week_number</th><th>x_cord</th><th>y_cord</th>";
 
-
+            // loop trough the data
             for (i = 0; i < data.length; i++) {
                 
+                // insert data to the table one row at the time
                 table += `<tr><td>${data[i].log_id}</td><td>${data[i].berry}</td><td>${data[i].forest_development_class}</td><td>${data[i].main_tree_type}</td><td>${data[i].year}</td><td>${data[i].month}</td><td>${data[i].day}</td><td>${data[i].week_number}</td><td>${data[i].x_cord}</td><td>${data[i].y_cord}</td></tr>`
 
             }
 
+            // show the data to the user
             document.getElementById("data").innerHTML = table
   
         }
@@ -71,7 +76,6 @@
     <footer>
         <h2>Some links</h2>
         <ul>
-            
             <li><a href="https://www.lapinamk.fi/">Lapin amk</a> </li>
             <li><a href="https://www.rovaniemi.fi/">Rovaniemi city</a></li>
             <li><a href="">Starbucks coffee</a></li>

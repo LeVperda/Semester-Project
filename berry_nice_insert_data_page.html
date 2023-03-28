@@ -1,35 +1,65 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <!--styles link-->
-        <link rel="stylesheet" href="Berry_styles.css">
 
-        <!--Title of the web page-->
-        <title>Berry nice</title>
+<head>
+    <!--styles link-->
+    <link rel="stylesheet" href="Berry_styles.css">
 
-    </head>
+    <!--Title of the web page-->
+    <title>Berry nice</title>
+
+</head>
 
 <body>
-        <!--header for the web page-->
-        <header>
-            <h1>Berry nice</h1>
-        </header>
+    <!--header for the web page-->
+    <header>
+        <h1>Berry nice</h1>
+    </header>
 
+    <!--hyperlink buttons for the webpage-->
     <div class="hyperlinks">
         <div class="container">
-            <div class="col-2 col-s-2"><ul><li><a href="vision">Vision</a></li></ul></div>
-            <div class="col-2 col-s-2"><ul><li><a href="vision">Vision</a></li></ul></div>
-            <div class="col-2 col-s-2"><ul><li><a href="vision">Vision</a></li></ul></div>
-            <div class="col-2 col-s-2"><ul><li><a href="vision">Vision</a></li></ul></div>
-            <div class="col-2 col-s-2"><ul><li><a href="vision">Vision</a></li></ul></div>
-            <div class="col-2 col-s-2"><ul><li><a href="vision">Vision</a></li></ul></div>
+            <div class="col-2 col-s-2">
+                <ul>
+                    <li><a href="vision">Vision</a></li>
+                </ul>
+            </div>
+            <div class="col-2 col-s-2">
+                <ul>
+                    <li><a href="vision">Vision</a></li>
+                </ul>
+            </div>
+            <div class="col-2 col-s-2">
+                <ul>
+                    <li><a href="vision">Vision</a></li>
+                </ul>
+            </div>
+            <div class="col-2 col-s-2">
+                <ul>
+                    <li><a href="vision">Vision</a></li>
+                </ul>
+            </div>
+            <div class="col-2 col-s-2">
+                <ul>
+                    <li><a href="vision">Vision</a></li>
+                </ul>
+            </div>
+            <div class="col-2 col-s-2">
+                <ul>
+                    <li><a href="vision">Vision</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 
+    <!--form for the input buttons-->
     <form>
+
+        <!--first container for the input data-->
+        <!--for x and y cordinate inputs-->
         <div id="first">
-        
+
             <label for="x">X-cordinate:</label><br>
             <input type="text" id="x"><br>
 
@@ -37,6 +67,8 @@
             <input type="text" id="y"><br>
         </div>
 
+        <!--second container for the input data-->
+        <!--for forest developement class, tree type and berry type-->
         <div id="second">
             <label for="dev_class">forest_development_class:</label>
             <select name="dev_class" id="dev_class">
@@ -46,7 +78,7 @@
                 <option value="old">old</option>
                 <option value="plantation">plantation</option>
             </select>
-            
+
             <br>
             <br>
 
@@ -80,11 +112,15 @@
 
         </div>
 
+        <!--third container for the input data-->
+        <!--for date information-->
         <div id="third">
             <label for="year">Year:</label>
             <input type="date" id="date">
-        
+
         </div>
+
+        <!--submit button for the page-->
 
         <button onclick="submit_backend()" type="button">Submit</button>
 
@@ -92,75 +128,89 @@
     </form>
     <br>
 
+    <!--table that shows the data given by user-->
     <table id="table"></table>
 
     <script>
-        
 
-
+        // function for submitting the data to backend
         function submit_backend() {
-            
+
+            // get the data from text inputs
             let x_cord = document.getElementById("x").value
             let y_cord = document.getElementById("y").value
 
+            // get the data from option inputs
             let forest_development_class = document.getElementById("dev_class").value
             let tree_type = document.getElementById("main_tree_type").value
             let berry = document.getElementById("berry").value
 
-            let date_time = new Date(document.getElementById("date").value);
-            
+            // get the data from inserted datetime
+            let date_time = new Date(document.getElementById("date").value).toString();
+
+            // header for the table
             var htmlText = "<th>X-cordinate</th><th>Y-cordinate</th><th>Forest development class</th><th>Tree type</th><th>Berry</th>"
 
+            // insert to the table the given values
             htmlText += `<tr><td>${x_cord}</td><td>${y_cord}</td><td>${forest_development_class}</td><td>${tree_type}</td><td>${berry}</td>`
 
+            // show the given data in the table
             document.getElementById("table").innerHTML = htmlText
-            
+
+            // use post data function to post the data to the backend
             post_data(x_cord, y_cord, forest_development_class, tree_type, berry, date_time)
-            
+
         }
 
+        // post data function
         function post_data(x_cord, y_cord, forest_development_class, tree_type, berry, date_time) {
 
+            // give alert to the user that the webpage is sending the given data to the backend
             alert("sending data")
 
+            // console logs
             console.log("x cord: " + x_cord)
             console.log("y cord: " + y_cord)
             console.log("forest_development_class: " + forest_development_class)
             console.log("Tree type: " + tree_type)
             console.log("Berry: " + berry)
             console.log("Datetime: " + date_time)
+            //
 
-            var xhr = new XMLHttpRequest();
+            // request function
+            const xhr = new XMLHttpRequest();
 
-            xhr.open("POST", "/berry_data_post", true);
-            xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-
-            var j_data = {
-                "x_cord":`${x_cord}`,
-                "y_cord":`${y_cord}`,
-                "dev_class":`${forest_development_class}`,
-                "tree_type":`${tree_type}`,
-                "berry":`${berry}`,
-                "date":`${date}`,
+            // data made to jason form
+            const j_data = {
+                "x_cord": `${x_cord}`,
+                "y_cord": `${y_cord}`,
+                "dev_class": `${forest_development_class}`,
+                "tree_type": `${tree_type}`,
+                "berry": `${berry}`,
+                "date": `${date_time}`,
             };
+
+            // url address
+            let url = "http://127.0.0.1:5000/berry_data_post"
+
+            // open request
+            xhr.open("POST", url);
+
+            // set `Content-Type` header
+            xhr.setRequestHeader("Content-Type",
+                                 "application/json");
+
+            // send request with JSON payload
             xhr.send(JSON.stringify(j_data));
-
-
-            
         }
-
 
     </script>
 
-
-
- 
     
-
     <footer>
         <h2>Some links</h2>
         <ul>
-            
+
             <li><a href="https://www.lapinamk.fi/">Lapin amk</a> </li>
             <li><a href="https://www.rovaniemi.fi/">Rovaniemi city</a></li>
             <li><a href="">Starbucks coffee</a></li>
@@ -171,6 +221,7 @@
 
         </ul>
     </footer>
-            
+
 </body>
+
 </html>

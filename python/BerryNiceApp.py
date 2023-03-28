@@ -3,6 +3,8 @@ import mysql.connector as mysql
 import functions_for_api as functions
 from flask_cors import CORS
 
+from logging import FileHandler,WARNING
+
 # connecting to the mysql database
 mydb = mysql.connect(
     host="localhost",
@@ -13,7 +15,10 @@ mydb = mysql.connect(
     auth_plugin="mysql_native_password"
 )
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder= 'template')
+
+file_Handler = FileHandler('errorlog.txt')
+file_Handler.setLevel(WARNING)
 
 app.route('/')
 CORS(app)
@@ -27,6 +32,7 @@ def get_data():
 
 @app.route('/berry_data_post', methods=['POST'])
 def berry_post():
+    print("posting")
     data = request.json
     my_post = functions.posting_berry_data(data)
 

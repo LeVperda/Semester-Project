@@ -1,6 +1,7 @@
 # imported mysql.connector to be able to connect the database
 import mysql.connector as mysql
 
+
 import random
 
 
@@ -46,7 +47,7 @@ def posting_berry_data(data):
     print(data)
 
     # making the data to variables
-    id = random(20000, 99999)
+    #id = random(20000, 99999)
     xcord = data['x_cord']
     ycord = data['y_cord']
     forest_dev = data['dev_class']
@@ -64,7 +65,7 @@ def posting_berry_data(data):
     #mycursor.execute(sql, val)
 
     # returns these to postman after inserting the data to database
-    #return f"salesman_id value is: {salesman_id}<br>" \
+    return f"salesman_id value is: {xcord}<br>" \
     #       f"name value is: {name}<br>" \
     #       f"city value is: {city}<br>" \
     #       f"commission value is: {commission}<br>"
