@@ -114,9 +114,9 @@ mycursor.execute("CREATE DATABASE IF NOT EXISTS Berry_nice")
 mycursor.execute("USE Berry_nice")
 
 # creating the table
-# mycursor.execute("CREATE TABLE IF NOT EXISTS berryes (log_id INT, berry VARCHAR(255), observation_date Datetime, main_tree_typee VARCHAR(255), forest_development_class VARCHAR(255),x_cord INT, y_cord INT, year INT, month INT, day INT, week_number INT, PRIMARY KEY (log_id))")
+# mycursor.execute("CREATE TABLE IF NOT EXISTS berries (log_id INT, berry VARCHAR(255), observation_date Datetime, main_tree_typee VARCHAR(255), forest_development_class VARCHAR(255),x_cord INT, y_cord INT, year INT, month INT, day INT, week_number INT, PRIMARY KEY (log_id))")
 
-mycursor.execute("CREATE TABLE IF NOT EXISTS berryes (log_id INT, berry VARCHAR(255), main_tree_type VARCHAR(255), forest_development_class VARCHAR(255),x_cord INT, y_cord INT, year INT, month INT, day INT, week_number INT, PRIMARY KEY (log_id))")
+mycursor.execute("CREATE TABLE IF NOT EXISTS berries (log_id INT, berry VARCHAR(255), main_tree_type VARCHAR(255), forest_development_class VARCHAR(255),x_cord INT, y_cord INT, year INT, month INT, day INT, week_number INT, PRIMARY KEY (log_id))")
 
 # looping the data to the mysql 
 
@@ -139,7 +139,7 @@ for index, row in df.iterrows():
     val.append(data_tuple)
 
 # insert statement for the mysql
-sql = "INSERT INTO berryes (log_id, berry, main_tree_type, forest_development_class, x_cord, y_cord, year, month, day, week_number) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+sql = "INSERT INTO berries (log_id, berry, main_tree_type, forest_development_class, x_cord, y_cord, year, month, day, week_number) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
 
 # excecute the command sql, add the values in list val
 mycursor.executemany(sql, val)

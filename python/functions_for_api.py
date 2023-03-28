@@ -35,7 +35,7 @@ def create_dict(result):
 # getting all the data at once
 def getalldata():
     # mysql command for getting all customers
-    mycursor.execute("SELECT * FROM berry_nice.berryes;")
+    mycursor.execute("SELECT * FROM berry_nice.berries;")
 
     myresult = mycursor.fetchall()
 
@@ -57,7 +57,7 @@ def posting_berry_data(data):
 
 
     # sql command for inserting to wanted database.
-    sql = "INSERT INTO berryes (log_id, berry, main_tree_type, forest_development_class, x_cord, y_cord, year, month, day, week_number) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+    sql = "INSERT INTO berries (log_id, berry, main_tree_type, forest_development_class, x_cord, y_cord, year, month, day, week_number) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
     # given values from the website
     #val = [(id), (berry), (main_tree), (forest_dev), (xcord), (ycord), (forest_dev), (forest_dev), (forest_dev), (forest_dev)]
 
