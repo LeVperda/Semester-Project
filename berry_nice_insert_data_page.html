@@ -115,14 +115,20 @@
         <!--third container for the input data-->
         <!--for date information-->
         <div id="third">
-            <label for="year">Year:</label>
-            <input type="date" id="date">
-
+            <label>
+                date berry was ripe:
+                <input type="date" id="date" value="2000-05-05">
+                <span for="date" class="validity" ></span>
+            </label>
         </div>
 
         <!--submit button for the page-->
 
-        <button onclick="submit_backend()" type="button">Submit</button>
+        <div id="fourth">
+            <button onclick="submit_backend()" type="button">Submit</button>
+            <input type="reset">
+        </div>
+
 
 
     </form>
@@ -146,7 +152,8 @@
             let berry = document.getElementById("berry").value
 
             // get the data from inserted datetime
-            let date_time = new Date(document.getElementById("date").value).toString();
+            let date_time = document.getElementById("date").value;
+
 
             // header for the table
             var htmlText = "<th>X-cordinate</th><th>Y-cordinate</th><th>Forest development class</th><th>Tree type</th><th>Berry</th>"
@@ -161,6 +168,8 @@
             post_data(x_cord, y_cord, forest_development_class, tree_type, berry, date_time)
 
         }
+
+
 
         // post data function
         function post_data(x_cord, y_cord, forest_development_class, tree_type, berry, date_time) {
@@ -187,7 +196,8 @@
                 "dev_class": `${forest_development_class}`,
                 "tree_type": `${tree_type}`,
                 "berry": `${berry}`,
-                "date": `${date_time}`,
+                "datetime": `${date_time}`
+
             };
 
             // url address

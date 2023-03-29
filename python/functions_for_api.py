@@ -1,5 +1,6 @@
 # imported mysql.connector to be able to connect the database
 import mysql.connector as mysql
+from datetime import datetime
 
 
 import random
@@ -11,6 +12,7 @@ mydb = mysql.connect(
     port="3306",
     user="root",
     password="Kg39562K!jkm",
+    database="berry_nice",
     auth_plugin="mysql_native_password"
 )
 
@@ -47,25 +49,54 @@ def posting_berry_data(data):
     print(data)
 
     # making the data to variables
-    #id = random(20000, 99999)
+    id = random.randrange(20000, 99999)
     xcord = data['x_cord']
     ycord = data['y_cord']
     forest_dev = data['dev_class']
     main_tree = data['tree_type']
     berry = data['berry']
-    date = data['date']
+    date = data['datetime']
 
+    # converting the input date from string to datetime
+    date_datetime = datetime.strptime(date, '%Y-%m-%d')
+
+    # getting the variables from datetime
+    year = date_datetime.year
+    month = date_datetime.month
+    day_number = date_datetime.day
+    week_number = date_datetime.isocalendar()[1]
+
+    # --------------------------------
+    print(f"datetime: {date_datetime}")
+    print(type(date_datetime))
+    print(f"year: {date_datetime.year}")
+    print(f"month: {date_datetime.month}")
+    print(f"day: {date_datetime.day}")
+    print(f"weeknumber: {date_datetime.isocalendar()[1]}")
+
+    # id
+    print(id)
+
+    # --------------------------------
 
     # sql command for inserting to wanted database.
     sql = "INSERT INTO berries (log_id, berry, main_tree_type, forest_development_class, x_cord, y_cord, year, month, day, week_number) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+
+    val = []
+
     # given values from the website
-    #val = [(id), (berry), (main_tree), (forest_dev), (xcord), (ycord), (forest_dev), (forest_dev), (forest_dev), (forest_dev)]
+    data = f"{id}, {berry}, {main_tree}, {forest_dev}, {xcord}, {ycord}, {year}, {month}, {day_number}, {week_number}"
+
+    # Convert the string to a tuple
+    data_tuple = tuple(data.split(", "))
+
+    val.append(data_tuple)
 
     # executing the command and the values
-    #mycursor.execute(sql, val)
+    mycursor.executemany(sql, val)
 
-    # returns these to postman after inserting the data to database
-    return f"salesman_id value is: {xcord}<br>" \
-    #       f"name value is: {name}<br>" \
-    #       f"city value is: {city}<br>" \
-    #       f"commission value is: {commission}<br>"
+    # commit
+    mydb.commit()
+
+    # print the amount of rows inserted
+    print(mycursor.rowcount, "record inserted.")
