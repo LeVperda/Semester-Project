@@ -64,6 +64,9 @@ footer {
     text-align: center;
     text-decoration: none;
     height: 200px;
+    width: 100%;
+    
+    bottom: 0px;
 }
 
 body {
@@ -170,7 +173,6 @@ form {
     display: inline-block;
     width: 50%;
 
-    float: left;
 
 
 
@@ -181,7 +183,7 @@ form {
     padding: 10px;
     display: inline-block;
     width: 100%;
-    float: left;
+
 
 
     border: 1px solid blue; 
@@ -193,4 +195,23 @@ form {
     padding: 10px;
 
     border: 1px solid green; 
+}
+
+/* show data styles */
+
+#show_buttons {
+    display: block;
+
+    min-width: 700px;
+    min-height: 75px;
+
+    float: left;
+    position: relative;
+
+
+    text-align: left;
+    
+    border: 1px solid#04AA6D;
+
+    
 }

@@ -28,17 +28,35 @@
     </div>
 
     <br>
-    <button id="get_data" onclick="showTable()">get data</button>
+
+    <div id="show_buttons">
+
+        <label for="lenght">amount of rows:</label>
+        <select name="lenght" id="list_len">
+            <option value="5">5 rows</option>
+            <option value="10">10 rows</option>
+            <option value="50">50 rows</option>
+            <option value="100">100 rows</option>
+            <option value="200">200 rows</option>
+            <option value="all">all rows</option>
+        </select><br>
+
+        <label for="sort">sort by:</label>
+        <select name="sort" id="sort" >
+            <option value="5">5 rows</option>
+            <option value="10">10 rows</option>
+            <option value="50">50 rows</option>
+            <option value="100">100 rows</option>
+            <option value="200">200 rows</option>
+            <option value="all">all rows</option>
+        </select><br>
+
+        <label for="get_data">get the data: </label>
+        <button id="get_data" onclick="showTable()">Submit</button>
 
 
-    <select name="lenght" id="list_len">
-        <option value="5">5 rows</option>
-        <option value="10">10 rows</option>
-        <option value="50">50 rows</option>
-        <option value="100">100 rows</option>
-        <option value="200">200 rows</option>
-        <option value="all">all rows</option>
-    </select>
+
+    </div>
     
      <table id="data" style="empty-cells: hide;"></table>
 
