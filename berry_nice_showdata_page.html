@@ -9,6 +9,9 @@
         <link rel="stylesheet" href="Berry_styles.css">
 
         <!--Title of the web page-->
+        <link rel="icon" href="/haroldlogo.jpg">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
         <title>Berry nice/showdata</title>
 
     </head>
@@ -21,11 +24,11 @@
 
     <div class="hyperlinks">
         <div class="container">
+            <div class="col-2 col-s-2"><ul><li><a href="/berry_nice.html" class="fa fa-home"> Home</a></li></ul></div>
+            <div class="col-2 col-s-2"><ul><li><a href="/berry_nice_showdata_page.html" class="fa fa-leaf"> Berries data</a></li></ul></div>
+            <div class="col-2 col-s-2"><ul><li><a href="/berry_nice_insert_data_page.html" class="fa fa-floppy-o">insert data</a></li></ul></div>
             <div class="col-2 col-s-2"><ul><li><a href="vision">Vision</a></li></ul></div>
-            <div class="col-2 col-s-2"><ul><li><a href="vision">Vision</a></li></ul></div>
-            <div class="col-2 col-s-2"><ul><li><a href="vision">Vision</a></li></ul></div>
-            <div class="col-2 col-s-2"><ul><li><a href="vision">Vision</a></li></ul></div>
-            <div class="col-2 col-s-2"><ul><li><a href="vision">Vision</a></li></ul></div>
+            <div class="col-2 col-s-2"><ul><li><a href="about us" class="fa fa-info-circle" aria-hidden="true"> About us</a></li></ul></div>
             <div class="col-2 col-s-2"><ul><li><a href="vision">Vision</a></li></ul></div>
         </div>
     </div>
@@ -46,7 +49,7 @@
         <br>
         <br>
 
-        <label for="sort">sort by:</label>
+        <label for="sort">show berry:</label>
         <select name="sort" id="sort" >
             <option value="all">all berries</option>
             <option value="cloudberry">cloudberry</option>
@@ -57,7 +60,7 @@
         <br>
         <br>
 
-        <label for="get_data">show certain berryes: </label>
+        <label for="get_data">show: </label>
         <button id="get_data" onclick="showTable()">Submit</button>
 
 
