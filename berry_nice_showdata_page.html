@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 
+
 <html>
     <head>
+        <meta>
+
         <!--styles link-->
         <link rel="stylesheet" href="Berry_styles.css">
 
         <!--Title of the web page-->
-        <title>Berry nice</title>
+        <title>Berry nice/showdata</title>
 
     </head>
 
@@ -39,17 +42,20 @@
             <option value="100">100 rows</option>
             <option value="200">200 rows</option>
             <option value="all">all rows</option>
-        </select><br>
+        </select>
+        <br>
+        <br>
 
         <label for="sort">sort by:</label>
         <select name="sort" id="sort" >
-            <option value="5">5 rows</option>
-            <option value="10">10 rows</option>
-            <option value="50">50 rows</option>
-            <option value="100">100 rows</option>
-            <option value="200">200 rows</option>
-            <option value="all">all rows</option>
-        </select><br>
+            <option value="all">all berries</option>
+            <option value="cloudberry">cloudberry</option>
+            <option value="bilberry">bilberry</option>
+            <option value="lingonberry">lingonberry</option>
+
+        </select>
+        <br>
+        <br>
 
         <label for="get_data">show certain berryes: </label>
         <button id="get_data" onclick="showTable()">Submit</button>

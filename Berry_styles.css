@@ -1,4 +1,6 @@
 *{
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -66,13 +68,15 @@ footer {
     text-decoration: none;
     height: 200px;
     width: 100%;
+    margin-top: auto;
     
-    bottom: 0px;
-    position: relative;
-}
+
+}   
 
 body {
+
     background-color: #eee7e7d0;
+
 }
 
 [class*="side_image"] {
@@ -200,14 +204,16 @@ form {
 /* show data styles */
 
 #show_buttons {
+    margin-left: 25px;
+
     display: block;
 
     min-width: 700px;
-    min-height: 75px;
+    height: 100px;
 
     float: left;
-    position: relative;
 
+    position: relative;
 
     text-align: left;
     
@@ -215,3 +221,4 @@ form {
 
     
 }
+
