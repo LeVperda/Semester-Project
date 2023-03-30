@@ -9,16 +9,18 @@ import random
 # connecting to local host
 mydb = mysql.connect(
     host="localhost",
-    port="3306",
+    port="3309",
     user="root",
     password="Kg39562K!jkm",
     database="berry_nice",
     auth_plugin="mysql_native_password"
 )
 
+# --------------------------------------------------------
 # select the correct database here
 mycursor = mydb.cursor()
 
+# --------------------------------------------------------
 # creating dictionary from gotten result
 def create_dict(result):
     dict_data = []
@@ -34,6 +36,7 @@ def create_dict(result):
 
     return dict_data
 
+# --------------------------------------------------------
 # getting all the data at once
 def getalldata():
     # mysql command for getting all customers
@@ -44,14 +47,16 @@ def getalldata():
     # creating a dictionary from fetched data
     return create_dict(myresult)
 
+# --------------------------------------------------------
+# function for posting the data to backend
 def posting_berry_data(data):
 
     print(data)
 
     # making the data to variables
     id = random.randrange(20000, 99999)
-    xcord = data['x_cord']
-    ycord = data['y_cord']
+    lat = data['lat']
+    lon = data['lon']
     forest_dev = data['dev_class']
     main_tree = data['tree_type']
     berry = data['berry']
@@ -80,12 +85,12 @@ def posting_berry_data(data):
     # --------------------------------
 
     # sql command for inserting to wanted database.
-    sql = "INSERT INTO berries (log_id, berry, main_tree_type, forest_development_class, x_cord, y_cord, year, month, day, week_number) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+    sql = "INSERT INTO berries (log_id, berry, main_tree_type, forest_development_class, lat, lon, year, month, day, week_number) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
 
     val = []
 
     # given values from the website
-    data = f"{id}, {berry}, {main_tree}, {forest_dev}, {xcord}, {ycord}, {year}, {month}, {day_number}, {week_number}"
+    data = f"{id}, {berry}, {main_tree}, {forest_dev}, {lat}, {lon}, {year}, {month}, {day_number}, {week_number}"
 
     # Convert the string to a tuple
     data_tuple = tuple(data.split(", "))
@@ -100,3 +105,5 @@ def posting_berry_data(data):
 
     # print the amount of rows inserted
     print(mycursor.rowcount, "record inserted.")
+# --------------------------------------------------------
+
