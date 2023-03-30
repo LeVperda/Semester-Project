@@ -143,11 +143,12 @@
             for (i = 0; i < input_data.length; i++ ) {
                 if (i == row) {
                     console.log(input_data[i])
+                    show_on_maps(input_data[i])
                 }
             }
         }
 
-        
+
         function row_finder() {
             let rButtons = document.getElementsByName("selected")
 
@@ -158,6 +159,16 @@
 
                 }
             }
+        }
+
+        function show_on_maps(data) {
+            console.log("to maps")
+            console.log(data)
+
+            var url = `https://www.google.com/maps/search/${data.lat},${data.lon}`
+
+            window.open(url)
+
         }
 
      </script>
