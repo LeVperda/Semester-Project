@@ -71,6 +71,8 @@
 
      <script>
 
+        var input_data = []
+
         
         
 
@@ -97,6 +99,8 @@
             var amount_of_rows = document.getElementById("list_len").value
 
             console.log("Amount of rows wanted: " + amount_of_rows)
+
+            input_data = data
 
 
 
@@ -132,10 +136,18 @@
   
         }
 
+        // selecting the row from radio buttons
         function selected_row() {
             row = row_finder() 
+
+            for (i = 0; i < input_data.length; i++ ) {
+                if (i == row) {
+                    console.log(input_data[i])
+                }
+            }
         }
 
+        
         function row_finder() {
             let rButtons = document.getElementsByName("selected")
 
