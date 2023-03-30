@@ -40,10 +40,10 @@
         <!--for x and y cordinate inputs-->
         <div id="first">
 
-            <label for="x">X-cordinate:</label><br>
+            <label for="lan">latitude:</label><br>
             <input type="text" id="x"><br>
 
-            <label for="Y">Y-cordinate:</label><br>
+            <label for="lon">longitude:</label><br>
             <input type="text" id="y"><br>
         </div>
 
@@ -123,8 +123,8 @@
         function submit_backend() {
 
             // get the data from text inputs
-            let x_cord = document.getElementById("x").value
-            let y_cord = document.getElementById("y").value
+            let lat = document.getElementById("lat").value
+            let lon = document.getElementById("lon").value
 
             // get the data from option inputs
             let forest_development_class = document.getElementById("dev_class").value
@@ -136,30 +136,30 @@
 
 
             // header for the table
-            var htmlText = "<th>X-cordinate</th><th>Y-cordinate</th><th>Forest development class</th><th>Tree type</th><th>Berry</th>"
+            var htmlText = "<th>latitude</th><th>longitude</th><th>Forest development class</th><th>Tree type</th><th>Berry</th>"
 
             // insert to the table the given values
-            htmlText += `<tr><td>${x_cord}</td><td>${y_cord}</td><td>${forest_development_class}</td><td>${tree_type}</td><td>${berry}</td>`
+            htmlText += `<tr><td>${lat}</td><td>${lon}</td><td>${forest_development_class}</td><td>${tree_type}</td><td>${berry}</td>`
 
             // show the given data in the table
             document.getElementById("table").innerHTML = htmlText
 
             // use post data function to post the data to the backend
-            post_data(x_cord, y_cord, forest_development_class, tree_type, berry, date_time)
+            post_data(lat, lon, forest_development_class, tree_type, berry, date_time)
 
         }
 
 
 
         // post data function
-        function post_data(x_cord, y_cord, forest_development_class, tree_type, berry, date_time) {
+        function post_data(lat, lon, forest_development_class, tree_type, berry, date_time) {
 
             // give alert to the user that the webpage is sending the given data to the backend
             alert("sending data")
 
             // console logs
-            console.log("x cord: " + x_cord)
-            console.log("y cord: " + y_cord)
+            console.log("x cord: " + lat)
+            console.log("y cord: " + lon)
             console.log("forest_development_class: " + forest_development_class)
             console.log("Tree type: " + tree_type)
             console.log("Berry: " + berry)
@@ -171,8 +171,8 @@
 
             // data made to jason form
             const j_data = {
-                "x_cord": `${x_cord}`,
-                "y_cord": `${y_cord}`,
+                "lat": `${lat}`,
+                "lon": `${lon}`,
                 "dev_class": `${forest_development_class}`,
                 "tree_type": `${tree_type}`,
                 "berry": `${berry}`,
