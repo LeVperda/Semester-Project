@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="Berry_styles.css">
 
         <!--Title of the web page-->
-        <link rel="icon" href="/haroldlogo.jpg">
+        <link rel="icon" href="/Semester-Project/haroldlogo.jpg">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <title>Berry nice/showdata</title>
@@ -67,9 +67,11 @@
 
     </div>
     
-     <table id="data" style="empty-cells: hide;"></table>
+     <table id="data" style="width: 70%;"></table>
 
      <script>
+
+        
         
 
         var table = "<th>Log id</th><th>Berry</th><th>forest_development_class</th><th>main_tree_type</th><th>year</th><th>month</th><th>day</th><th>week_number</th><th>lat</th><th>lon</th>";
@@ -96,8 +98,11 @@
 
             console.log("Amount of rows wanted: " + amount_of_rows)
 
+
+
+
             // header for the table
-            var table = "<th>Log id</th><th>Berry</th><th>forest_development_class</th><th>main_tree_type</th><th>year</th><th>month</th><th>day</th><th>week_number</th><th>lat</th><th>lon</th>";
+            var table = "<th>select</th><th>Log id</th><th>Berry</th><th>forest_development_class</th><th>main_tree_type</th><th>year</th><th>month</th><th>day</th><th>week_number</th><th>lat</th><th>lon</th>";
 
             if (amount_of_rows == "all") {
 
@@ -105,7 +110,8 @@
                 for (i = 0; i < data.length; i++) {
                 
                     // insert data to the table one row at the time
-                    table += `<tr><td>${data[i].log_id}</td><td>${data[i].berry}</td><td>${data[i].forest_development_class}</td><td>${data[i].main_tree_type}</td><td>${data[i].year}</td><td>${data[i].month}</td><td>${data[i].day}</td><td>${data[i].week_number}</td><td>${data[i].lat}</td><td>${data[i].lon}</td></tr>`
+                    table += `<tr><td><input type="radio" name="selected" value=${i}></td><td>${data[i].log_id}</td><td>${data[i].berry}</td><td>${data[i].forest_development_class}</td><td>${data[i].main_tree_type}</td><td>${data[i].year}</td><td>${data[i].month}</td><td>${data[i].day}</td><td>${data[i].week_number}</td><td>${data[i].lat}</td><td>${data[i].lon}</td></tr>`
+                    
                 } 
             
         } else {
@@ -113,12 +119,33 @@
                 for (i = 0; i < amount_of_rows; i++) {
 
                     // insert data to the table one row at the time
-                    table += `<tr><td>${data[i].log_id}</td><td>${data[i].berry}</td><td>${data[i].forest_development_class}</td><td>${data[i].main_tree_type}</td><td>${data[i].year}</td><td>${data[i].month}</td><td>${data[i].day}</td><td>${data[i].week_number}</td><td>${data[i].lat}</td><td>${data[i].lon}</td></tr>`
+                    table += `<tr><td><input type="radio" name="selected" value=${i}></td><td>${data[i].log_id}</td><td>${data[i].berry}</td><td>${data[i].forest_development_class}</td><td>${data[i].main_tree_type}</td><td>${data[i].year}</td><td>${data[i].month}</td><td>${data[i].day}</td><td>${data[i].week_number}</td><td>${data[i].lat}</td><td>${data[i].lon}</td></tr>`
+
+                
                 }}
 
             // show the data to the user
             document.getElementById("data").innerHTML = table
+
+            // radio listener for the rows
+            document.getElementsByName("selected").forEach(radio => radio.addEventListener('change', selected_row))
   
+        }
+
+        function selected_row() {
+            row = row_finder() 
+        }
+
+        function row_finder() {
+            let rButtons = document.getElementsByName("selected")
+
+            for (i = 0; i < rButtons.length; i++) {
+                if (rButtons[i].checked == true) {
+                    console.log("sorterselected: " + rButtons[i].value)
+                    return rButtons[i].value
+
+                }
+            }
         }
 
      </script>
