@@ -212,8 +212,8 @@ form {
 
     display: block;
 
-    min-width: 700px;
-    height: 100px;
+    width: 15%;
+    min-height: 100px;
 
     float: left;
 
@@ -224,5 +224,10 @@ form {
     border: 1px solid#04AA6D;
 
     
+}
+
+#show_data_buttons {
+    border: 1px solid pink;
+    text-align: right;
 }
 
