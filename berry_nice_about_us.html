@@ -5,6 +5,10 @@
         <!--styles link-->
         <link rel="stylesheet" href="Berry_styles.css">
 
+        This js script needs to be in head of every html for the nav bar to work
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    
+
         <!--Title of the web page-->
         <title>Berry nice</title>
 
@@ -17,14 +21,11 @@
         </header>
 
     <div class="hyperlinks">
-        <div class="container">
-            <div class="col-2 col-s-2"><ul><li><a href="vision">Vision</a></li></ul></div>
-            <div class="col-2 col-s-2"><ul><li><a href="vision">Vision</a></li></ul></div>
-            <div class="col-2 col-s-2"><ul><li><a href="vision">Vision</a></li></ul></div>
-            <div class="col-2 col-s-2"><ul><li><a href="vision">Vision</a></li></ul></div>
-            <div class="col-2 col-s-2"><ul><li><a href="vision">Vision</a></li></ul></div>
-            <div class="col-2 col-s-2"><ul><li><a href="vision">Vision</a></li></ul></div>
-        </div>
+        <script>
+            $(function(){
+            $("header").load("berry_navigation.html"); 
+            });
+        </script>
     </div>
 
     About us:
@@ -95,6 +96,7 @@
             <h3>Kirill Sobolev</h3>
             <img class="side_image" src="harold5.jpg" alt="About us"/>
         </div>
+    </div>
    
     <footer>
         <h2>Some links</h2>
