@@ -117,6 +117,7 @@ footer {
 [class*="Logo"] {
     width: 400px;
     height: 300px;
+    
 }
 
 
@@ -189,8 +190,6 @@ form {
     width: 50%;
     float: left;
 
-
-
     border: 1px solid red;
 }
 
@@ -198,9 +197,6 @@ form {
     padding: 10px;
     display: inline-block;
     width: 50%;
-
-
-
 
     border: 1px solid green;
 }
@@ -306,6 +302,7 @@ form {
     position: absolute;
     transform: translate(-50%, -50%);
     text-align: center;
+    display: flex;
 }
 
 [class*="col-6 col-s-6"]:hover .side_image {
