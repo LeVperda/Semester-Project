@@ -75,7 +75,7 @@ footer {
 }   
 
 body {
-    background-color: #e7ffff
+    background-color: #eff1fc5b
 }
 
 [class*="side_image"] {
@@ -88,6 +88,13 @@ body {
 [class*="Logo"] {
     width: 400px;
     height: 300px;
+}
+
+
+
+[class*="main_Logo"] {
+    width: 200px;
+    height: 150px;
 }
 
 /* rounded background for text*/
