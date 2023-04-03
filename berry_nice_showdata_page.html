@@ -23,7 +23,7 @@
 <body>
         <!--header for the web page-->
         <header>
-            <h1>Berry nice</h1>
+
         </header>
 
     <div class="hyperlinks">
@@ -33,12 +33,12 @@
             });
         </script>
     </div>
-    </div>
+
 
     <br>
 
     <div id="show_buttons">
-
+        <!--show the amount of rows in the table-->
         <label for="lenght">amount of rows:</label>
         <select name="lenght" id="list_len">
             <option value="5">5 rows</option>
@@ -51,6 +51,7 @@
         <br>
         <br>
 
+        <!--show the wanted berry-->
         <label for="sort">show berry:</label>
         <select name="sort" id="sort" >
             <option value="all">all berries</option>
@@ -62,6 +63,7 @@
         <br>
         <br>
 
+        <!--buttons to activate the functions-->
         <div id="show_data_buttons">
             <label for="get_data">show data: </label>
             <button id="get_data" onclick="showTable()">Submit</button><br>
@@ -75,23 +77,15 @@
 
         </div>
 
-
-
-
-
-
-
     </div>
     
-     <table id="data" style="width: 70%;"></table>
+     <table id="data"></table>
 
      <script>
 
         var input_data = []
         var selected_data = []
 
-        
-        
 
         var table = "<th>Log id</th><th>Berry</th><th>forest_development_class</th><th>main_tree_type</th><th>year</th><th>month</th><th>day</th><th>week_number</th><th>lat</th><th>lon</th>";
 
@@ -118,9 +112,6 @@
             console.log("Amount of rows wanted: " + amount_of_rows)
 
             input_data = data
-
-
-
 
             // header for the table
             var table = "<th>select</th><th>Log id</th><th>Berry</th><th>forest_development_class</th><th>main_tree_type</th><th>year</th><th>month</th><th>day</th><th>week_number</th><th>lat</th><th>lon</th>";
