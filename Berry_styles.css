@@ -26,7 +26,7 @@
 
 /* Add a black background color to the top navigation */
 .container {
-    background-color: #bd9774;
+    background-color: #d39861;
     overflow: hidden;
 }
   
@@ -75,7 +75,7 @@ footer {
 }   
 
 body {
-    background-color: #c2c3a8
+    background-color: #e7ffff
 }
 
 [class*="side_image"] {
