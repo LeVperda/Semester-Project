@@ -92,9 +92,7 @@ footer {
     height: 200px;
     width: 100%;
 
-    padding: 15px;
-
-    mask-position: 0;
+    margin-top: auto;
 
 }
 
