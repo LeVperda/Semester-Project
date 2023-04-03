@@ -64,7 +64,6 @@
     float: left;
     padding: 10px;
 
-    border: 1px solid pink;
 }
 
 header {
@@ -279,43 +278,37 @@ form {
     .col-12 {width: 100%;}
 }
 
-/*Hover over pictures for surprises*/
-[class*="col-6 col-s-6"] {
-    position: relative;
-    width: 50%;
-    align-content: center;
-}
 
-.side_image {
-    opacity: 1;
-    display: block;
-    transition: .5s ease;
-    backface-visibility: hidden;
-}
 
-/*box for text inside the pic*/
-.side_image:hover {
-    transition: .5s ease;
-    opacity: 0;
-    left: 50%;
-    top: 50%;
-    position: relative;
-    transform: translate(-50%, -50%);
+/* about us employee styles */
+.employee{
+    display: flex;
     text-align: center;
-    display: grid;
+    justify-content: center;
+    
 }
 
+.employee a {
+    display: flex;
+    justify-content: center;
+
+}
+
+.employee a:hover {
+    opacity: 0.3;
+
+}
 
 /*Text inside the hoverable pic*/
-.text {
+.styling text {
     background-color: #04AA6D;
     color: white;
     font-size: 16px;
     padding: 16px 32px;
-    max-width: 200px;  
-/*This is where hover functions end*/
-}
+    max-width: 100px;  
 
-.employee {
-    align-self: center;
+    position: absolute;
+    margin-top: 50%;
+
+/*This is where hover functions end*/
 }
