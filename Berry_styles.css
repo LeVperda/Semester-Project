@@ -16,7 +16,7 @@
 
 /* Add a black background color to the top navigation */
 .container {
-    background-color: #d39861;
+    background-color: #d2ac93;
     overflow: hidden;
 }
   
@@ -81,7 +81,7 @@ body {
 }
 
 footer {
-    background-color: #bd9774;
+    background-color: #d2ac93;
     color: #1d2a1b;
     text-align: center;
     text-decoration: none;
@@ -89,7 +89,12 @@ footer {
     width: 100%;
 
     margin-top: auto;
+    
 
+}   
+
+body {
+    background-color: white
 }
 
 
