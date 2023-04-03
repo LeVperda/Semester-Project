@@ -1,6 +1,6 @@
 # imported mysql.connector to be able to connect the database
 import mysql.connector as mysql
-from functions_for_api import upload_berryfile_to_mysql
+import functions_for_api as functions
 
 # data management imports
 import numpy as np

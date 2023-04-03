@@ -6,8 +6,16 @@
     <!--styles link-->
     <link rel="stylesheet" href="Berry_styles.css">
 
+    <!--nav bar link-->
+   <!-- This js script needs to be in head of every html for the nav bar to work-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
     <!--Title of the web page-->
-    <title>Berry nice</title>
+    
+    <link rel="icon" href="/Semester-Project/haroldlogo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Berry nice/insert data</title>
 
 </head>
 
@@ -19,38 +27,11 @@
 
     <!--hyperlink buttons for the webpage-->
     <div class="hyperlinks">
-        <div class="container">
-            <div class="col-2 col-s-2">
-                <ul>
-                    <li><a href="vision">Vision</a></li>
-                </ul>
-            </div>
-            <div class="col-2 col-s-2">
-                <ul>
-                    <li><a href="vision">Vision</a></li>
-                </ul>
-            </div>
-            <div class="col-2 col-s-2">
-                <ul>
-                    <li><a href="vision">Vision</a></li>
-                </ul>
-            </div>
-            <div class="col-2 col-s-2">
-                <ul>
-                    <li><a href="vision">Vision</a></li>
-                </ul>
-            </div>
-            <div class="col-2 col-s-2">
-                <ul>
-                    <li><a href="vision">Vision</a></li>
-                </ul>
-            </div>
-            <div class="col-2 col-s-2">
-                <ul>
-                    <li><a href="vision">Vision</a></li>
-                </ul>
-            </div>
-        </div>
+        <script>
+            $(function(){
+            $("header").load("berry_navigation.html"); 
+            });
+        </script>
     </div>
 
     <!--form for the input buttons-->
@@ -60,11 +41,11 @@
         <!--for x and y cordinate inputs-->
         <div id="first">
 
-            <label for="x">X-cordinate:</label><br>
-            <input type="text" id="x"><br>
+            <label for="lat">latitude:</label><br>
+            <input type="text" id="lat"><br>
 
-            <label for="Y">Y-cordinate:</label><br>
-            <input type="text" id="y"><br>
+            <label for="lon">longitude:</label><br>
+            <input type="text" id="lon"><br>
         </div>
 
         <!--second container for the input data-->
@@ -115,14 +96,20 @@
         <!--third container for the input data-->
         <!--for date information-->
         <div id="third">
-            <label for="year">Year:</label>
-            <input type="date" id="date">
-
+            <label>
+                date berry was ripe:
+                <input type="date" id="date" value="2000-05-05">
+                <span for="date" class="validity" ></span>
+            </label>
         </div>
 
         <!--submit button for the page-->
 
-        <button onclick="submit_backend()" type="button">Submit</button>
+        <div id="fourth">
+            <button onclick="submit_backend()" type="button">Submit</button>
+            <input type="reset">
+        </div>
+
 
 
     </form>
@@ -137,8 +124,8 @@
         function submit_backend() {
 
             // get the data from text inputs
-            let x_cord = document.getElementById("x").value
-            let y_cord = document.getElementById("y").value
+            let lat = document.getElementById("lat").value
+            let lon = document.getElementById("lon").value
 
             // get the data from option inputs
             let forest_development_class = document.getElementById("dev_class").value
@@ -146,31 +133,34 @@
             let berry = document.getElementById("berry").value
 
             // get the data from inserted datetime
-            let date_time = new Date(document.getElementById("date").value).toString();
+            let date_time = document.getElementById("date").value;
+
 
             // header for the table
-            var htmlText = "<th>X-cordinate</th><th>Y-cordinate</th><th>Forest development class</th><th>Tree type</th><th>Berry</th>"
+            var htmlText = "<th>latitude</th><th>longitude</th><th>Forest development class</th><th>Tree type</th><th>Berry</th>"
 
             // insert to the table the given values
-            htmlText += `<tr><td>${x_cord}</td><td>${y_cord}</td><td>${forest_development_class}</td><td>${tree_type}</td><td>${berry}</td>`
+            htmlText += `<tr><td>${lat}</td><td>${lon}</td><td>${forest_development_class}</td><td>${tree_type}</td><td>${berry}</td>`
 
             // show the given data in the table
             document.getElementById("table").innerHTML = htmlText
 
             // use post data function to post the data to the backend
-            post_data(x_cord, y_cord, forest_development_class, tree_type, berry, date_time)
+            post_data(lat, lon, forest_development_class, tree_type, berry, date_time)
 
         }
 
+
+
         // post data function
-        function post_data(x_cord, y_cord, forest_development_class, tree_type, berry, date_time) {
+        function post_data(lat, lon, forest_development_class, tree_type, berry, date_time) {
 
             // give alert to the user that the webpage is sending the given data to the backend
             alert("sending data")
 
             // console logs
-            console.log("x cord: " + x_cord)
-            console.log("y cord: " + y_cord)
+            console.log("x cord: " + lat)
+            console.log("y cord: " + lon)
             console.log("forest_development_class: " + forest_development_class)
             console.log("Tree type: " + tree_type)
             console.log("Berry: " + berry)
@@ -182,12 +172,13 @@
 
             // data made to jason form
             const j_data = {
-                "x_cord": `${x_cord}`,
-                "y_cord": `${y_cord}`,
+                "lat": `${lat}`,
+                "lon": `${lon}`,
                 "dev_class": `${forest_development_class}`,
                 "tree_type": `${tree_type}`,
                 "berry": `${berry}`,
-                "date": `${date_time}`,
+                "datetime": `${date_time}`
+
             };
 
             // url address
