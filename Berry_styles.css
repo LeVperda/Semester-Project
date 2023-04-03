@@ -287,6 +287,7 @@ form {
 [class*="col-6 col-s-6"] {
     position: relative;
     width: 50%;
+    align-content: center;
 }
 
 .side_image {
@@ -300,7 +301,8 @@ form {
 .middle {
     transition: .5s ease;
     opacity: 0;
-
+    left: 50%;
+    top: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
     text-align: center;
