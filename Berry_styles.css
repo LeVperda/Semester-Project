@@ -88,6 +88,13 @@ body {
     height: 150px;
 }
 
+
+
+[class*="Logo"] {
+    width: 400px;
+    height: 300px;
+}
+
 iframe {
     padding: 0%;
     float:left;
