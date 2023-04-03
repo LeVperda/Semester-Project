@@ -63,6 +63,8 @@
 [class*="col-"] {
     float: left;
     padding: 10px;
+
+    border: 1px solid pink;
 }
 
 header {
@@ -107,6 +109,7 @@ footer {
 [class*="side_image"] {
     width: 200px;
     height: 150px;
+    
 }
 
 
@@ -297,8 +300,7 @@ form {
 .middle {
     transition: .5s ease;
     opacity: 0;
-    top: 50%;
-    left: 50%;
+
     position: absolute;
     transform: translate(-50%, -50%);
     text-align: center;
