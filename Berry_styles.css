@@ -16,7 +16,7 @@
 
 /* Add a black background color to the top navigation */
 .container {
-    background-color: #d2ac93;
+    background-color: #d39861;
     overflow: hidden;
 }
   
@@ -81,7 +81,7 @@ body {
 }
 
 footer {
-    background-color: #d2ac93;
+    background-color: #bd9774;
     color: #1d2a1b;
     text-align: center;
     text-decoration: none;
@@ -89,12 +89,7 @@ footer {
     width: 100%;
 
     margin-top: auto;
-    
 
-}   
-
-body {
-    background-color: white
 }
 
 
@@ -296,7 +291,6 @@ form {
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
     text-align: center;
 }
 
@@ -314,4 +308,6 @@ form {
     color: white;
     font-size: 16px;
     padding: 16px 32px;
+
+/*This is where hover functions end*/
 }
