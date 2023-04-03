@@ -54,43 +54,6 @@
     padding: 10px;
 }
 
-/*Hover over pictures for surprises*/
-
-.image {
-    opacity: 1;
-    display: block;
-    width: 100%;
-    height: auto;
-    transition: .5s ease;
-    backface-visibility: hidden;
-  }
-  
-  .middle {
-    transition: .5s ease;
-    opacity: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    text-align: center;
-}
-
-[class*="col-6 col-s-6"]:hover .side_image {
-    opacity: 0.3;
-}
-  
-[class*="col-6 col-s-6"]:hover .middle {
-    opacity: 1;
-}
-
-.text {
-    background-color: #04AA6D;
-    color: white;
-    font-size: 16px;
-    padding: 16px 32px;
-}
-
 header {
     background-color: #31816e;
     text-align: center;
@@ -305,4 +268,45 @@ form {
     .col-10 {width: 83.33%;}
     .col-11 {width: 91.66%;}
     .col-12 {width: 100%;}
+}
+
+/*Hover over pictures for surprises*/
+[class*="col-6 col-s-6"] {
+    position: relative;
+    width: 50%;
+}
+
+.side_image {
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+/*box for text inside the pic*/
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+[class*="col-6 col-s-6"]:hover .side_image {
+    opacity: 0.3;
+}
+  
+[class*="col-6 col-s-6"]:hover .middle {
+    opacity: 1;
+}
+
+/*Text inside the hoverable pic*/
+.text {
+    background-color: #04AA6D;
+    color: white;
+    font-size: 16px;
+    padding: 16px 32px;
 }
