@@ -97,14 +97,12 @@
 
                 <!--selector buttons-->
                 <div>
-                    <label for="barplot_checkbox">barplot-graph</label>
-                    <input type="checkbox" id="barplot_checkbox" name="barplot_checkbox" value="barplot"><br>
+                    <h2>charts from all the data:</h2>
 
-                    <label for="barplot_checkbox">doughnut-graph</label>
-                    <input type="checkbox" id="Pie_Charts_checkbox" name="Pie_Charts_checkbox" value="doughnut"><br>
+                    barplot: <button onclick="f_barplot()">barplot</button><br>
 
 
-                    <button onclick="with_all_data()">submit</button>
+                    pieplot: <button onclick="f_pieChart()">pieChart</button>
 
                 </div>
 
@@ -140,7 +138,20 @@
         let date_time_from = ""
         let date_time_to = ""
 
+        var berries = []
+
+        var cloudberry = []
+        var lingonberry = []
+        var bilberry = []
+
+        var xvalues = []
+        var yvalues = []
+        var barColors = []
+
         var df = []
+
+
+
 
 
         // functio for fetching the data from the api
@@ -168,15 +179,12 @@
             date_time_to = document.getElementById("date_to").value;
 
             df = data
+
+            with_all_data()
         }
 
         function with_all_data() {
 
-            var berries = []
-
-            var cloudberry = []
-            var lingonberry = []
-            var bilberry = []
 
             for (var key in df) {
                 if (df[key].berry == "cloudberry") {
@@ -191,67 +199,62 @@
             }
 
             // values for the charts 
-            var xvalues = ['bilberry', 'lingonberry', 'cloudberry']
-            var yvalues = [bilberry.length, lingonberry.length, cloudberry.length]
-            var barColors = ["blue", "red", "orange"];
+            xvalues = ['bilberry', 'lingonberry', 'cloudberry']
+            yvalues = [bilberry.length, lingonberry.length, cloudberry.length]
+            barColors = ["blue", "red", "orange"];
 
-            console.log("----")
-            console.log(df)
-            console.log("----")
+            
 
-            if (barplot_checkbox.checked == true) {
-                alert("barplot")
+        }
 
-                const ctx = document.getElementById('barChart');
+        // function for making a barplot
+        function f_barplot() {
 
-                new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: xvalues,
-                        datasets: [{
-                            backgroundColor: barColors,
-                            label: '#all berries',
-                            data: yvalues,
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true
-                            }
+            const ctx = document.getElementById('barChart');
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: xvalues,
+                    datasets: [{
+                        backgroundColor: barColors,
+                        label: '#all berries',
+                        data: yvalues,
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
                         }
                     }
-                });
+                }
+            });
 
 
-            } else if (Pie_Charts_checkbox.checked == true) {
+        }
 
+        // function for making a pieplot
+        function f_pieChart() {
+            const ctx = document.getElementById('pieChart');
 
-                // values for the charts 
-                alert("pie")
-                
-                const ctx = document.getElementById('pieChart');
-
-                new Chart(ctx, {
-                    type: "pie",
-                    data: {
-                        labels: xvalues,
-                        datasets: [{
-                            backgroundColor: barColors,
-                            data: yvalues
-                        }]
-                    },
-                    options: {
-                        title: {
-                            display: true,
-                            text: "all the berry data"
-                        }
+            new Chart(ctx, {
+                type: "pie",
+                data: {
+                    labels: xvalues,
+                    datasets: [{
+                        backgroundColor: barColors,
+                        data: yvalues
+                    }]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: "all the berry data"
                     }
-                });
+                }
+            });
 
-
-
-            }
 
         }
 
