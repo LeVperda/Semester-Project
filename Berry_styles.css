@@ -113,14 +113,11 @@ footer {
 }
 
 
-
 [class*="Logo"] {
     width: 400px;
     height: 300px;
     
 }
-
-
 
 [class*="main_Logo"] {
     width: 200px;
@@ -134,7 +131,7 @@ footer {
     background-color: #f0f0f0;
     padding: 5px;
     margin: 5px;
-  }
+}
 
 iframe {
     padding: 0%;
@@ -207,7 +204,6 @@ form {
     width: 100%;
 
 
-
     border: 1px solid blue; 
 }
 
@@ -219,8 +215,25 @@ form {
     border: 1px solid green; 
 }
 
-/* show data styles */
+.berry{
+    position:right;
+    width: 50%;
+}
+/*About us intro*/
+.agenda{
+    float: left;
+}
+.about{/*the title*/
+    text-align: center;
+}
 
+.intro{ /*the info text*/
+    position: center;
+    padding: 20px
+}
+
+
+/* show data styles */
 #show_buttons {
     margin-left: 25px;
 
@@ -280,42 +293,53 @@ form {
 }
 
 /*Hover over pictures for surprises*/
-[class*="col-6 col-s-6"] {
+.column {
     position: relative;
     width: 50%;
-    align-content: center;
 }
 
+/*THE TEXT BOX INSIDE THE PICS WILL
+ BE CENTERED WHEN THE IMAGE IS IN IT'S ORIGINAL SIZE */
 .side_image {
     opacity: 1;
     display: block;
+    width: 100%;
+    height: auto;
     transition: .5s ease;
     backface-visibility: hidden;
 }
-
-/*box for text inside the pic*/
-.side_image:hover {
+  
+.middle {
     transition: .5s ease;
     opacity: 0;
-    left: 50%;
+    position: absolute;
     top: 50%;
-    position: relative;
+    left: 50%;
     transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     text-align: center;
-    display: grid;
+}
+  
+.column:hover .side_image {
+    opacity: 0.3;
+}
+  
+.column:hover .middle {
+    opacity: 1;
 }
 
 
-/*Text inside the hoverable pic*/
-.text{
+.text {
     background-color: #04AA6D;
     color: white;
     font-size: 16px;
     padding: 16px 32px;
-    max-width: 200px;  
-/*This is where hover functions end*/
 }
 
-.employee {
-    align-self: center;
-}
+/*Text inside the hoverable pic*/
+
+
+/*This is where hover functions end*/
+
+
+
