@@ -312,3 +312,37 @@ form {
 
 /*This is where hover functions end*/
 }
+
+/* visualization styles */
+
+.graph_buttons {
+    border: 1px solid green;
+    display: grid;
+    column-gap: 50px;
+
+    height: 250px;
+}
+
+.graph_selector {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid red;
+
+}
+
+.graph_selector > div {
+    background-color: #b4df63;
+    width: auto;
+    margin: 15px;
+    text-align: center;
+
+
+}
+
+.charts{
+
+    height: 100%;
+    max-height: 400px;
+    width: 100%;
+    max-width:700px
+}

@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <!--styles link-->
-        <link rel="stylesheet" href="Berry_styles.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<head>
+    <!--styles link-->
+    <link rel="stylesheet" href="Berry_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-         <!--nav bar link-->
-        <!-- This js script needs to be in head of every html for the nav bar to work-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!--nav bar link-->
+    <!-- This js script needs to be in head of every html for the nav bar to work-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-        <!--Title of the web page-->
-        <title>Berry nice</title>
+    <!--Title of the web page-->
+    <title>Berry nice</title>
 
-    </head>
+</head>
 
 <body>
     <!--header for the web page-->
@@ -24,18 +25,246 @@
 
     <div class="hyperlinks">
         <script>
-            $(function(){
-            $("header").load("berry_navigation.html"); 
+            $(function () {
+                $("header").load("berry_navigation.html");
             });
         </script>
     </div>
 
-    
+    <!--class will on full screen-->
+    <div class="col-12 col-s-12">
+
+        <!--class will on 1-4 columns of the screen-->
+        <div class="col-4 col-s-4">
+            <div class="graph_buttons">
+
+                <!--selection for forest developement class-->
+                <label for="dev_class">forest_development_class:</label>
+                <select name="dev_class" id="dev_class">
+                    <option value="">value</option>
+                    <option value="clearing">clearing</option>
+                    <option value="seedling">seedling</option>
+                    <option value="old">old</option>
+                    <option value="plantation">plantation</option>
+                </select>
+
+                <!--selection for main_tree_type-->
+                <label for="main_tree_type">Main tree type:</label>
+                <select name="main_tree_type" id="main_tree_type">
+                    <option value="">value</option>
+
+                    <option value="birch">birch</option>
+                    <option value="spruce">spruce</option>
+                    <option value="pine">pine</option>
+                    <option value="other">other</option>
+
+                    <option value="swamp">swamp</option>
+                    <option value="mixed">mixed</option>
+                    <option value="larch">larch</option>
+                    <option value="open">open</option>
+                </select>
+
+                <!--selection for berry type-->
+                <label for="berry">Berry type:</label>
+                <select name="berry" id="berry">
+
+                    <option value="">value</option>
+                    <option value="bilberry">bilberry</option>
+                    <option value="lingonberry">lingonberry</option>
+                    <option value="cloudberry">cloudberry</option>
+
+                </select>
+
+                <!--selection for date where the time BEGINS-->
+                <label>
+                    From what date:
+                    <input type="date" id="date_from" value="2000-05-05">
+                    <span for="date" class="validity"></span>
+                </label>
+
+                <!--selection for date where the time ENDS-->
+                <label>
+                    To what date:
+                    <input type="date" id="date_to" value="2000-05-05">
+                    <span for="date" class="validity"></span>
+                </label>
+
+            </div>
+        </div>
+        <div class="col-6 col-s-6">
+            <div class="graph_selector">
+
+
+                <!--selector buttons-->
+                <div>
+                    <label for="barplot_checkbox">barplot-graph</label>
+                    <input type="checkbox" id="barplot_checkbox" name="barplot_checkbox" value="barplot"><br>
+
+                    <label for="barplot_checkbox">doughnut-graph</label>
+                    <input type="checkbox" id="Pie_Charts_checkbox" name="Pie_Charts_checkbox" value="doughnut"><br>
+
+
+                    <button onclick="with_all_data()">submit</button>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+        <div class="col-12 col-s-12">
+            <div class="col-6 col-s-6">
+                <canvas id="barChart" class="charts"></canvas>
+            </div>
+
+            <div class="col-6 col-s-6">
+                <canvas id="pieChart" class="charts"></canvas>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+    </div>
+
+    <script>
+
+        Get_data()
+
+        // variables for the functions
+        let forest_development_class = ""
+        let tree_type = ""
+        let berry = ""
+        let date_time_from = ""
+        let date_time_to = ""
+
+        var df = []
+
+
+        // functio for fetching the data from the api
+        function Get_data() {
+
+            // url address
+            let url = "http://127.0.0.1:5000/berry_data"
+
+            // fetch the data from backend
+            fetch(url)
+                .then(Response => Response.json())
+                .then(data => Show_data(data))
+        }
+
+        function Show_data(data) {
+            console.log(data)
+
+            // get the data from option inputs
+            forest_development_class = document.getElementById("dev_class").value
+            tree_type = document.getElementById("main_tree_type").value
+            berry = document.getElementById("berry").value
+
+            // get the data from inserted datetime
+            date_time_from = document.getElementById("date_from").value;
+            date_time_to = document.getElementById("date_to").value;
+
+            df = data
+        }
+
+        function with_all_data() {
+
+            var berries = []
+
+            var cloudberry = []
+            var lingonberry = []
+            var bilberry = []
+
+            for (var key in df) {
+                if (df[key].berry == "cloudberry") {
+                    cloudberry.push(df[key].berry)
+                }
+                else if (df[key].berry == "lingonberry") {
+                    lingonberry.push(df[key].berry)
+                }
+                else {
+                    bilberry.push(df[key].berry)
+                }
+            }
+
+            // values for the charts 
+            var xvalues = ['bilberry', 'lingonberry', 'cloudberry']
+            var yvalues = [bilberry.length, lingonberry.length, cloudberry.length]
+            var barColors = ["blue", "red", "orange"];
+
+            console.log("----")
+            console.log(df)
+            console.log("----")
+
+            if (barplot_checkbox.checked == true) {
+                alert("barplot")
+
+                const ctx = document.getElementById('barChart');
+
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: xvalues,
+                        datasets: [{
+                            backgroundColor: barColors,
+                            label: '#all berries',
+                            data: yvalues,
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+
+
+            } else if (Pie_Charts_checkbox.checked == true) {
+
+
+                // values for the charts 
+                alert("pie")
+                
+                const ctx = document.getElementById('pieChart');
+
+                new Chart(ctx, {
+                    type: "pie",
+                    data: {
+                        labels: xvalues,
+                        datasets: [{
+                            backgroundColor: barColors,
+                            data: yvalues
+                        }]
+                    },
+                    options: {
+                        title: {
+                            display: true,
+                            text: "all the berry data"
+                        }
+                    }
+                });
+
+
+
+            }
+
+        }
+
+
+
+
+    </script>
+
 
     <footer>
         <h2>Some links</h2>
         <ul>
-            
+
             <li><a href="https://www.lapinamk.fi/">Lapin amk</a> </li>
             <li><a href="https://www.rovaniemi.fi/">Rovaniemi city</a></li>
             <li><a href="">Starbucks coffee</a></li>
@@ -46,6 +275,7 @@
 
         </ul>
     </footer>
-            
+
 </body>
+
 </html>
