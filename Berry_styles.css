@@ -294,24 +294,17 @@ form {
 }
 
 /*box for text inside the pic*/
-.middle {
+.side_image:hover {
     transition: .5s ease;
     opacity: 0;
     left: 50%;
     top: 50%;
-    position: absolute;
+    position: relative;
     transform: translate(-50%, -50%);
     text-align: center;
-    display: flex;
+    display: grid;
 }
 
-[class*="col-6 col-s-6"]:hover .side_image {
-    opacity: 0.3;
-}
-  
-[class*="col-6 col-s-6"]:hover .middle {
-    opacity: 1;
-}
 
 /*Text inside the hoverable pic*/
 .text{
@@ -319,6 +312,10 @@ form {
     color: white;
     font-size: 16px;
     padding: 16px 32px;
-
+    max-width: 200px;  
 /*This is where hover functions end*/
+}
+
+.employee {
+    align-self: center;
 }
