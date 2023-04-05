@@ -74,20 +74,23 @@
                     <!--selection for date where the time BEGINS-->
                     <label>
                         From what date:
-                        <input type="date" id="date_from" value="2000-05-05" />
+                        <input type="date" id="date_from"/>
                         <span for="date" class="validity"></span>
                     </label>
 
                     <!--selection for date where the time ENDS-->
                     <label>
                         To what date:
-                        <input type="date" id="date_to" value="2000-05-05" />
+                        <input type="date" id="date_to"/>
                         <span for="date" class="validity"></span><br />
 
                         <button onclick="filter()">submit</button>
+                        <input type="reset">
+                        
                     </label>
                 </div>
             </div>
+            
             <div class="col-6 col-s-6">
                 <div class="graph_selector">
                     <!--selector buttons-->
@@ -138,16 +141,13 @@
             var barColors = [];
 
             var df = [];
+            var filtered_df = []
 
             // get the data from option inputs
             forest_development_class = document.getElementById("dev_class").value;
             tree_type = document.getElementById("main_tree_type").value;
             berry = document.getElementById("berry").value;
-
-            // get the data from inserted datetime
-            date_time_from = document.getElementById("date_from").value;
-            date_time_to = document.getElementById("date_to").value;
-
+            
 
             // functio for fetching the data from the api
             function Get_data() {
@@ -165,10 +165,11 @@
 
                 df = data;
 
-                with_all_data();
+                berry_data_all();
             }
 
-            function with_all_data() {
+            // function for all the data
+            function berry_data_all() {
                 for (var key in df) {
                     if (df[key].berry == "cloudberry") {
                         cloudberry.push(df[key].berry);
@@ -176,6 +177,37 @@
                         lingonberry.push(df[key].berry);
                     } else {
                         bilberry.push(df[key].berry);
+                    }
+                }
+
+                // values for the charts
+                xvalues = [];
+                yvalues = [];
+                barColors = [];
+
+                xvalues = ["bilberry", "lingonberry", "cloudberry"];
+                yvalues = [
+                    bilberry.length,
+                    lingonberry.length,
+                    cloudberry.length,
+                ];
+                barColors = ["blue", "red", "orange"];
+            }
+
+            // functio for filtered data
+            function berry_data_filtered(filtered_df) {
+
+                data = filtered_df
+
+                console.log(filtered_df.length)
+
+                for (var key in data) {
+                    if (data[key].berry == "cloudberry") {
+                        cloudberry.push(data[key].berry);
+                    } else if (data[key].berry == "lingonberry") {
+                        lingonberry.push(data[key].berry);
+                    } else {
+                        bilberry.push(data[key].berry);
                     }
                 }
 
@@ -191,6 +223,9 @@
 
             // function for making a barplot
             function f_barplot() {
+
+                console.log(xvalues)
+                console.log(yvalues)
                 const ctx = document.getElementById("barChart");
 
                 new Chart(ctx, {
@@ -218,17 +253,41 @@
             // filtered data
             function filter() {
 
-                
-                
-                
 
-                console.log(date_time_to);
+                // get the data from inserted datetime
+                date_time_from = document.getElementById("date_from").value;
+                date_time_to = document.getElementById("date_to").value;
+
+                // input datetimes to Time
+                const datef = new Date(date_time_from)
+                const datet = new Date(date_time_to)
+
+
+                console.log(date_time_from);
+                
+                filter_time(datef, datet)
+
+                berry_data_filtered(filtered_df);
             }
 
+            function filter_time(datef, datet) {
 
-            function filter_time() {
+                filtered_df = df.filter( time => {
+
+                    const date = new Date(time.observation_date)
+
+                    if (datef.getTime() > datet.getTime()) {
+                        alert("date from cannot be more than date to")
+
+                        
+                    } else {
+                        return (date.getTime() > datef.getTime()) && (date.getTime() < datet.getTime())
+                    }
+
+                    
 
 
+                })
             }
 
             //
