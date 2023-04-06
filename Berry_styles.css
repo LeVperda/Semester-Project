@@ -3,6 +3,15 @@
     padding: 0;
     box-sizing: border-box;
 
+
+}
+
+.hyperlinks div {
+    display: grid;
+    grid-template-columns: 15% 15% 15% 15% 15%;
+    column-gap: 5%;
+    row-gap: 50px;
+    padding-left: 10%;
 }
 
 /* Text designs */
@@ -12,12 +21,14 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
+
 }
 
 /* Add a black background color to the top navigation */
 .container {
-    background-color: #d2ac93;
+    background-color: #d39861;
     overflow: hidden;
+
 }
   
 /* Style the links inside the navigation bar */
@@ -52,6 +63,7 @@
 [class*="col-"] {
     float: left;
     padding: 10px;
+
 }
 
 header {
@@ -59,7 +71,6 @@ header {
     text-align: center;
     padding: 10px;
     color: #bd9774;
-    
 
 }
 
@@ -81,7 +92,7 @@ body {
 }
 
 footer {
-    background-color: #d2ac93;
+    background-color: #bd9774;
     color: #1d2a1b;
     text-align: center;
     text-decoration: none;
@@ -89,12 +100,7 @@ footer {
     width: 100%;
 
     margin-top: auto;
-    
 
-}   
-
-body {
-    background-color: white
 }
 
 
@@ -102,16 +108,15 @@ body {
 [class*="side_image"] {
     width: 200px;
     height: 150px;
+    
 }
-
 
 
 [class*="Logo"] {
     width: 400px;
     height: 300px;
+    
 }
-
-
 
 [class*="main_Logo"] {
     width: 200px;
@@ -125,7 +130,7 @@ body {
     background-color: #f0f0f0;
     padding: 5px;
     margin: 5px;
-  }
+}
 
 iframe {
     padding: 0%;
@@ -181,8 +186,6 @@ form {
     width: 50%;
     float: left;
 
-
-
     border: 1px solid red;
 }
 
@@ -191,9 +194,6 @@ form {
     display: inline-block;
     width: 50%;
 
-
-
-
     border: 1px solid green;
 }
 
@@ -201,7 +201,6 @@ form {
     padding: 10px;
     display: inline-block;
     width: 100%;
-
 
 
     border: 1px solid blue; 
@@ -215,8 +214,25 @@ form {
     border: 1px solid green; 
 }
 
-/* show data styles */
+.berry{
+    position:right;
+    width: 50%;
+}
+/*About us intro*/
+.agenda{
+    float: left;
+}
+.about{/*the title*/
+    text-align: center;
+}
 
+.intro{ /*the info text*/
+    position: center;
+    padding: 20px
+}
+
+
+/* show data styles */
 #show_buttons {
     margin-left: 25px;
 
@@ -279,6 +295,7 @@ form {
 [class*="col-6 col-s-6"] {
     position: relative;
     width: 50%;
+    align-content: center;
 }
 
 .side_image {
@@ -289,24 +306,17 @@ form {
 }
 
 /*box for text inside the pic*/
-.middle {
+.side_image:hover {
     transition: .5s ease;
     opacity: 0;
-    top: 50%;
     left: 50%;
-    position: absolute;
+    top: 50%;
+    position: relative;
     transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
     text-align: center;
+    display: grid;
 }
 
-[class*="col-6 col-s-6"]:hover .side_image {
-    opacity: 0.3;
-}
-  
-[class*="col-6 col-s-6"]:hover .middle {
-    opacity: 1;
-}
 
 /*Text inside the hoverable pic*/
 .text {
@@ -315,3 +325,11 @@ form {
     font-size: 16px;
     padding: 16px 32px;
 }
+
+/*Text inside the hoverable pic*/
+
+
+/*This is where hover functions end*/
+
+
+

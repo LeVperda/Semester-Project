@@ -85,8 +85,10 @@
 
      <script>
 
+        // variables for the functions to work
         var input_data = []
         var selected_data = []
+        var berry = []
 
 
         var table = "<th>Log id</th><th>Berry</th><th>forest_development_class</th><th>main_tree_type</th><th>year</th><th>month</th><th>day</th><th>week_number</th><th>lat</th><th>lon</th>";
@@ -113,16 +115,7 @@
 
             var berry_type = document.getElementById("sort").value
 
-
-            if (berry_type != "all") {
-                
-                
-                var berry = data.filter((el) => el.berry == berry_type);
-
-            } else {
-
-                var berry = data
-            }
+            var berry = selected_berry_type(berry_type, data)
 
 
             console.log("Amount of rows wanted: " + amount_of_rows)
@@ -162,21 +155,47 @@
   
         }
 
-        // selecting the row from radio buttons
-        function selected_row() {
-            row = row_finder() 
+        // getting selected berry type
+        function selected_berry_type(berry_type, data) {
 
-            for (i = 0; i < input_data.length; i++ ) {
-                if (i == row) {
+            if (berry_type != "all") {
+                       
+                berry = data.filter((el) => el.berry == berry_type);
 
-                    selected_data = input_data[i]
+                return berry
+    
+            } else {
 
-                    console.log(input_data[i])
-                }
+                berry = data
+
+                return berry
             }
         }
 
 
+        // selecting the row from radio buttons
+        function selected_row() {
+            row = row_finder() 
+
+
+
+            console.log("berry")
+            console.log(berry)
+
+            for (i = 0; i < berry.length; i++ ) {
+                if (i == row) {
+
+                    selected_data = berry[i]
+
+                    console.log("selected_data")
+
+                    return selected_data
+
+                }
+            }
+        }
+
+        // finding the row from radio buttons
         function row_finder() {
             let rButtons = document.getElementsByName("selected")
 
@@ -199,8 +218,6 @@
                 window.open(url, "_blank")
 
             }
-
-
         }
 
      </script>
