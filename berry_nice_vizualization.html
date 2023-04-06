@@ -218,8 +218,7 @@
             barColors = ["blue", "red", "orange"];
 
             const ctx = document.getElementById("barChart");
-            
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
         }
 
         // function for making a barplot
@@ -229,7 +228,7 @@
             console.log(yvalues)
             const ctx = document.getElementById("barChart");
             
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
 
             new Chart(ctx, {
                 type: "bar",
@@ -296,8 +295,6 @@
         // function for making a pieplot
         function f_pieChart() {
             const ctx = document.getElementById("pieChart");
-
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             new Chart(ctx, {
                 type: "pie",
