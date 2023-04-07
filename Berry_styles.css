@@ -95,6 +95,7 @@ footer {
     background-color: #bd9774;
     color: #1d2a1b;
     text-align: center;
+    list-style: none;
     text-decoration: none;
     height: 200px;
     width: 100%;
@@ -132,9 +133,11 @@ footer {
     margin: 5px;
 }
 
+/*youtube video*/
 iframe {
     padding: 0%;
     float:left;
+    overflow:hidden;
 }
 
 /* Table settings */
@@ -152,11 +155,6 @@ table,tr,td {
 
 th {
     height: 25px;
-}
-
-
-ul {
-    list-style-type: none;
 }
 
 
@@ -214,16 +212,14 @@ form {
     border: 1px solid green; 
 }
 
-.berry{
+.berry{/*logo in about us*/
     position:right;
     width: 50%;
 }
+
 /*About us intro*/
 .agenda{
     float: left;
-}
-.about{/*the title*/
-    text-align: center;
 }
 
 .intro{ /*the info text*/
@@ -231,6 +227,11 @@ form {
     padding: 20px
 }
 
+/*Our goals and values text*/
+.values{
+    position:center;
+    padding:20px;
+}
 
 /* show data styles */
 #show_buttons {
@@ -292,32 +293,40 @@ form {
 }
 
 /*Hover over pictures for surprises*/
-[class*="col-6 col-s-6"] {
+
+.column {
     position: relative;
     width: 50%;
-    align-content: center;
 }
-
 .side_image {
     opacity: 1;
     display: block;
+    width: 100%;
+    height: auto;
     transition: .5s ease;
     backface-visibility: hidden;
 }
 
 /*box for text inside the pic*/
-.side_image:hover {
+.middle {
     transition: .5s ease;
     opacity: 0;
-    left: 50%;
+    position: absolute;
     top: 50%;
-    position: relative;
+    left: 50%;
     transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     text-align: center;
-    display: grid;
 }
 
-
+.column:hover .side_image {
+    opacity: 0.3;
+}
+  
+.column:hover .middle {
+    opacity: 1;
+}
+  
 /*Text inside the hoverable pic*/
 .text {
     background-color: #04AA6D;
@@ -325,11 +334,8 @@ form {
     font-size: 16px;
     padding: 16px 32px;
 }
-
-/*Text inside the hoverable pic*/
-
-
 /*This is where hover functions end*/
 
-
-
+a{
+    text-decoration: none;
+}
