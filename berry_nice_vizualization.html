@@ -4,9 +4,8 @@
 
 <head>
     <!--styles link-->
-    <link rel="stylesheet" href="Berry_styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="Berry_styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <!--nav bar link-->
     <!-- This js script needs to be in head of every html for the nav bar to work-->
@@ -14,7 +13,6 @@
 
     <!--Title of the web page-->
     <title>Berry nice</title>
-
 </head>
 
 <body>
@@ -33,11 +31,9 @@
 
     <!--class will on full screen-->
     <div class="col-12 col-s-12">
-
         <!--class will on 1-4 columns of the screen-->
         <div class="col-4 col-s-4">
             <div class="graph_buttons">
-
                 <!--selection for forest developement class-->
                 <label for="dev_class">forest_development_class:</label>
                 <select name="dev_class" id="dev_class">
@@ -67,49 +63,44 @@
                 <!--selection for berry type-->
                 <label for="berry">Berry type:</label>
                 <select name="berry" id="berry">
-
                     <option value="">value</option>
                     <option value="bilberry">bilberry</option>
                     <option value="lingonberry">lingonberry</option>
                     <option value="cloudberry">cloudberry</option>
-
                 </select>
 
                 <!--selection for date where the time BEGINS-->
                 <label>
                     From what date:
-                    <input type="date" id="date_from" value="2000-05-05">
+                    <input type="date" id="date_from" />
                     <span for="date" class="validity"></span>
                 </label>
 
                 <!--selection for date where the time ENDS-->
                 <label>
                     To what date:
-                    <input type="date" id="date_to" value="2000-05-05">
-                    <span for="date" class="validity"></span>
-                </label>
+                    <input type="date" id="date_to" />
+                    <span for="date" class="validity"></span><br />
 
+                    <button onclick="filter()">submit</button>
+                    <input type="reset">
+
+                </label>
             </div>
         </div>
+
         <div class="col-6 col-s-6">
             <div class="graph_selector">
-
-
                 <!--selector buttons-->
                 <div>
                     <h2>charts from all the data:</h2>
 
-                    barplot: <button onclick="f_barplot()">barplot</button><br>
+                    barplot: <button onclick="f_barplot()">barplot</button><br />
 
-
-                    pieplot: <button onclick="f_pieChart()">pieChart</button>
-
+                    pieplot:
+                    <button onclick="f_pieChart()">pieChart</button>
                 </div>
-
-
-
             </div>
-
         </div>
 
         <div class="col-12 col-s-12">
@@ -124,154 +115,222 @@
 
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-
     </div>
 
     <script>
-
-        Get_data()
+        Get_data();
 
         // variables for the functions
-        let forest_development_class = ""
-        let tree_type = ""
-        let berry = ""
-        let date_time_from = ""
-        let date_time_to = ""
+        let forest_development_class = "";
+        let tree_type = "";
+        let berry = "";
+        let date_time_from = "";
+        let date_time_to = "";
 
-        var berries = []
+        var berries = [];
 
-        var cloudberry = []
-        var lingonberry = []
-        var bilberry = []
+        var cloudberry = [];
+        var lingonberry = [];
+        var bilberry = [];
 
-        var xvalues = []
-        var yvalues = []
-        var barColors = []
+        var xvalues = [];
+        var yvalues = [];
+        var barColors = [];
 
-        var df = []
+        var df = [];
+        var filtered_df = []
+
+        // get the data from option inputs
+        forest_development_class = document.getElementById("dev_class").value;
+        tree_type = document.getElementById("main_tree_type").value;
+        berry = document.getElementById("berry").value;
+
 
         // functio for fetching the data from the api
         function Get_data() {
-
             // url address
-            let url = "http://127.0.0.1:5000/berry_data"
+            let url = "http://127.0.0.1:5000/berry_data";
 
             // fetch the data from backend
             fetch(url)
-                .then(Response => Response.json())
-                .then(data => Show_data(data))
+                .then((Response) => Response.json())
+                .then((data) => Show_data(data));
         }
 
         function Show_data(data) {
-            console.log(data)
+            console.log(data);
 
-            // get the data from option inputs
-            forest_development_class = document.getElementById("dev_class").value
-            tree_type = document.getElementById("main_tree_type").value
-            berry = document.getElementById("berry").value
+            df = data;
 
-            // get the data from inserted datetime
-            date_time_from = document.getElementById("date_from").value;
-            date_time_to = document.getElementById("date_to").value;
-
-            df = data
-
-            with_all_data()
+            berry_data_all();
         }
 
-        function with_all_data() {
-
-
+        // function for all the data
+        function berry_data_all() {
             for (var key in df) {
                 if (df[key].berry == "cloudberry") {
-                    cloudberry.push(df[key].berry)
-                }
-                else if (df[key].berry == "lingonberry") {
-                    lingonberry.push(df[key].berry)
-                }
-                else {
-                    bilberry.push(df[key].berry)
+                    cloudberry.push(df[key].berry);
+                } else if (df[key].berry == "lingonberry") {
+                    lingonberry.push(df[key].berry);
+                } else {
+                    bilberry.push(df[key].berry);
                 }
             }
 
-            // values for the charts 
-            xvalues = ['bilberry', 'lingonberry', 'cloudberry']
-            yvalues = [bilberry.length, lingonberry.length, cloudberry.length]
+
+            xvalues = ["bilberry", "lingonberry", "cloudberry"];
+            yvalues = [
+                bilberry.length,
+                lingonberry.length,
+                cloudberry.length,
+            ];
+            barColors = ["blue", "red", "orange"];
+        }
+
+        // functio for filtered data
+        function berry_data_filtered(filtered_df) {
+
+            // values for the charts
+            var cloudberry = [];
+            var lingonberry = [];
+            var bilberry = [];
+            data = filtered_df
+
+            console.log(filtered_df.length)
+
+            for (var key in data) {
+                if (data[key].berry == "cloudberry") {
+                    cloudberry.push(data[key].berry);
+                } else if (data[key].berry == "lingonberry") {
+                    lingonberry.push(data[key].berry);
+                } else {
+                    bilberry.push(data[key].berry);
+                }
+            }
+
+            // values for the charts
+            xvalues = ["bilberry", "lingonberry", "cloudberry"];
+            yvalues = [
+                bilberry.length,
+                lingonberry.length,
+                cloudberry.length,
+            ];
             barColors = ["blue", "red", "orange"];
 
-            
-
+            const ctx = document.getElementById("barChart");
+        
         }
 
         // function for making a barplot
         function f_barplot() {
 
-            const ctx = document.getElementById('barChart');
+            console.log(xvalues)
+            console.log(yvalues)
+            const ctx = document.getElementById("barChart");
+            
+
 
             new Chart(ctx, {
-                type: 'bar',
+                type: "bar",
                 data: {
                     labels: xvalues,
-                    datasets: [{
-                        backgroundColor: barColors,
-                        label: '#all berries',
-                        data: yvalues,
-                    }]
+                    datasets: [
+                        {
+                            backgroundColor: barColors,
+                            label: "#all berries",
+                            data: yvalues,
+                        },
+                    ],
                 },
                 options: {
                     scales: {
                         y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
+                            beginAtZero: true,
+                        },
+                    },
+                },
             });
-
-
         }
 
+        // filtered data
+        function filter() {
+
+
+            // get the data from inserted datetime
+            date_time_from = document.getElementById("date_from").value;
+            date_time_to = document.getElementById("date_to").value;
+
+            // input datetimes to Time
+            const datef = new Date(date_time_from)
+            const datet = new Date(date_time_to)
+
+            filter_time(datef, datet)
+
+            console.log("------")
+            console.log(filtered_df)
+            console.log("------")
+
+            berry_data_filtered(filtered_df);
+        }
+
+        function filter_time(datef, datet) {
+
+            filtered_df = df.filter(time => {
+
+                const date = new Date(time.observation_date)
+
+                if (datef.getTime() > datet.getTime()) {
+                    alert("date from cannot be more than date to")
+
+
+                } else {
+                    return (date.getTime() > datef.getTime()) && (date.getTime() < datet.getTime())
+                }
+            })
+
+            console.log("perse")
+        }
+
+        //
         // function for making a pieplot
         function f_pieChart() {
-            const ctx = document.getElementById('pieChart');
+            const ctx = document.getElementById("pieChart");
 
             new Chart(ctx, {
                 type: "pie",
                 data: {
                     labels: xvalues,
-                    datasets: [{
-                        backgroundColor: barColors,
-                        data: yvalues
-                    }]
+                    datasets: [
+                        {
+                            backgroundColor: barColors,
+                            data: yvalues,
+                        },
+                    ],
                 },
                 options: {
                     title: {
                         display: true,
-                        text: "all the berry data"
-                    }
-                }
+                        text: "all the berry data",
+                    },
+                },
             });
-
-
         }
-
     </script>
-
 
     <footer>
         <h2>Some links</h2>
         <ul>
-
-            <li><a href="https://www.lapinamk.fi/">Lapin amk</a> </li>
+            <li><a href="https://www.lapinamk.fi/">Lapin amk</a></li>
             <li><a href="https://www.rovaniemi.fi/">Rovaniemi city</a></li>
             <li><a href="">Starbucks coffee</a></li>
-            <li><a href="">Apple</a> </li>
+            <li><a href="">Apple</a></li>
             <li><a href="https://www.google.com/"></a>Google</li>
-            <li><a href="https://www.foreca.fi/">Weather</a> </li>
-            <li><a href="https://www.visitrovaniemi.fi/">Visit Rovaniemi</a></li>
-
+            <li><a href="https://www.foreca.fi/">Weather</a></li>
+            <li>
+                <a href="https://www.visitrovaniemi.fi/">Visit Rovaniemi</a>
+            </li>
         </ul>
     </footer>
-
 </body>
 
 </html>
