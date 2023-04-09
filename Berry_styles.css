@@ -12,6 +12,11 @@
     column-gap: 5%;
     row-gap: 50px;
     padding-left: 10%;
+    text-decoration: none;
+    list-style: none;
+    overflow: hidden;
+ 
+    
 }
 
 /* Text designs */
@@ -26,7 +31,7 @@
 
 /* Add a black background color to the top navigation */
 .container {
-    background-color: #d39861;
+    background-color: #5b4a3b;
     overflow: hidden;
 
 }
@@ -69,8 +74,8 @@
 header {
     background-color: #31816e;
     text-align: center;
-    padding: 10px;
     color: #bd9774;
+    padding-top:10px;
 
 }
 
@@ -136,7 +141,7 @@ footer {
 /*youtube video*/
 iframe {
     padding: 0%;
-    float:left;
+    float:right;
     overflow:hidden;
 }
 
@@ -157,8 +162,6 @@ th {
     height: 25px;
 }
 
-
-/*  */
 
 /* For insert data table */
 form {
@@ -333,8 +336,14 @@ form {
     color: white;
     font-size: 16px;
     padding: 16px 32px;
+    border: 1px solid black;
 }
 /*This is where hover functions end*/
+
+/*centering pics*/
+.staff{
+    margin-left:10px;
+}
 
 a{
     text-decoration: none;
