@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    border: 1px solid #1d2a1b;
+   
 
 
 }
@@ -69,7 +69,8 @@
 [class*="col-"] {
     float: left;
     padding: 10px;
-    overflow:hidden;
+    width: 100%;
+    overflow: hidden;
 
 }
 
@@ -77,7 +78,6 @@ header {
     background-color: #31816e;
     text-align: center;
     color: #bd9774;
-    padding-top:10px;
 
 }
 
@@ -120,16 +120,18 @@ footer {
 }
 
 
-[class*="Logo"] {
-    width: 400px;
-    height: 300px;
+[class="Logo"] {
+    width: 300px;
+    height: 250px;
+    float:right;
     
 }
 
 [class*="main_Logo"] {
     width: 200px;
     height: 150px;
-    align-self: left;
+    align-self: middle;
+    padding: 10px;
 }
 
 /* rounded background for text*/
@@ -142,15 +144,9 @@ footer {
 
 /*youtube video*/
 iframe {
-    padding: 0%;
-    float:right;
+    float:left;
     overflow:hidden;
 }
-
-.vision{
-    
-}
-
 
 /* Table settings */
 
@@ -172,19 +168,20 @@ th {
 
 /* For insert data table */
 form {
+    
     padding: 20px;
     padding-left: 20px;
     
     width: 40%;
-    height: 250px;
+    height: auto;
 
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
     
     text-align: center;
-
-
-    border: 1px solid rgb(165, 135, 135);
+    background-color: #53723a;
+    border-radius: 5px;
     
 }
 
@@ -194,42 +191,76 @@ form {
     width: 50%;
     float: left;
 
-    border: 1px solid red;
+    overflow: hidden;
 }
 
 #second {
     padding: 10px;
     display: inline-block;
     width: 50%;
-
-    border: 1px solid green;
+    overflow:hidden;
 }
 
 #third {
     padding: 10px;
     display: inline-block;
     width: 100%;
+    overflow: hidden;
 
-
-    border: 1px solid blue; 
 }
 
-#fourth {
-    float: right;
-    bottom: auto;
-    padding: 10px;
-
-    border: 1px solid green; 
+#fourth{
+    align-items: center;
 }
 
-.berry{/*logo in about us*/
-    position:right;
+/*submit button*/
+button[type=button] {
+    float:left;
+    width: 100px;
+    background-color: #b68d3a;
+    color: rgb(8, 8, 8);
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+
+}
+button[type=button]:hover {
+    background-color: #aa3763;
+}
+
+
+/*Reset button*/
+input[type=reset] {
+    float:right;
+    width: 100px;
+    background-color: #b68d3a;
+    color: rgb(8, 8, 8);
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+
+}
+
+input[type=reset]:hover {
+    background-color: #aa3763;
+}
+
+
+.berry{    /*logo in about us*/
+    align-items: middle;
     width: 50%;
+    margin:auto;
 }
-
 /*About us intro*/
 .agenda{
     float: left;
+    padding: 50px 200px;
 }
 
 .intro{ /*the info text*/
@@ -240,7 +271,7 @@ form {
 /*Our goals and values text*/
 .values{
     position:center;
-    padding:20px;
+    padding:20px 100px;
 }
 
 /* show data styles */
@@ -339,11 +370,10 @@ form {
   
 /*Text inside the hoverable pic*/
 .text {
-    background-color: #04AA6D;
-    color: white;
-    font-size: 16px;
+    background-color: #ebb341;
+    
+    
     padding: 16px 32px;
-    border: 1px solid black;
 }
 /*This is where hover functions end*/
 
@@ -354,19 +384,25 @@ form {
 
 a{
     text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 16px;
 }
 
+/*Slide show*/
 .mySlides {
     display: none;
 }
+
 img {
     vertical-align: middle;
     width: 100%;
+    height:150px;
 }
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 10000px;
+  width: 100%;
   position: relative;
   margin: auto;
   
@@ -422,3 +458,8 @@ img {
 @media only screen and (max-width: 300px) {
   .text {font-size: 11px}
 }
+
+.vision{
+    padding: 50px
+}
+
