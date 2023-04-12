@@ -34,9 +34,12 @@
         </script>
     </div>
 
+    <h1 style="text-align: center;">Berry Ripe</h1>
+   
     <!--form for the input buttons-->
     <form>
-
+        <div><b>Here you can add information about your berry harvest <br> and the kind of environment they were picked from</b></div>
+    </div>
         <!--first container for the input data-->
         <!--for x and y cordinate inputs-->
         <div id="first">
@@ -96,8 +99,10 @@
         <!--third container for the input data-->
         <!--for date information-->
         <div id="third">
+            <br>
+            <br>
             <label>
-                date berry was ripe:
+                <b>date berry was ripe:</b>
                 <input type="date" id="date" value="2000-05-05">
                 <span for="date" class="validity" ></span>
             </label>
@@ -105,10 +110,12 @@
 
         <!--submit button for the page-->
 
-        <div id="fourth">
+        <div class="fourth">
             <button onclick="submit_backend()" type="button">Submit</button>
-            <input type="reset">
+
+            <input type="reset"/>
         </div>
+    
 
 
 
