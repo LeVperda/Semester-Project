@@ -8,7 +8,7 @@ from logging import FileHandler,WARNING
 # connecting to the mysql database
 mydb = mysql.connect(
     host="localhost",
-    port="3306",
+    port="3309",
     user="root",
     password="Kg39562K!jkm",
     database="berry_nice",
