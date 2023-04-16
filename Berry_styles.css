@@ -206,7 +206,7 @@ form {
     margin: 5px;
     display: inline-block;
     width: 40%;
-    float: left;
+    
     background-color: #d8d8d85f;
 
     overflow: hidden;
@@ -375,7 +375,7 @@ form {
     background-color: #92bec49b;
   }
   
-  .column:hover .overlay {
+.column:hover .overlay {
     opacity: 1;
   }
   
@@ -492,5 +492,6 @@ a{
 
 canvas {
     padding: 2%;
+    height: 20%;
 }
 
