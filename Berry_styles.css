@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+    font-family: Georgia, serif;
 
 }
 
@@ -15,8 +15,7 @@
     text-decoration: none;
     list-style: none;
     overflow: hidden;
- 
-    
+
 }
 
 /* Text designs */
@@ -28,6 +27,7 @@
     overflow: hidden;
 
 }
+
 
 /* Add a black background color to the top navigation */
 .container {
@@ -105,9 +105,15 @@ footer {
     text-decoration: none;
     height: 200px;
     width: 100%;
+    padding:10px;
 
     margin-top: auto;
 
+}
+
+footer h2{
+    text-decoration: underline;
+    padding: 10px;
 }
 
 footer a:hover{
@@ -401,9 +407,12 @@ form {
 .staff{
     margin-left:10px;
 }
-
+ul{
+    list-style-type: none;
+}
 a{
     text-decoration: none;
+    
     color: rgb(0, 0, 0);
     font-weight: bold;
     font-size: 16px;
@@ -421,33 +430,34 @@ a{
 /* Slideshow container */
 .slideshow-container {
     max-width: 1000px;
+    max-height: 350px;
     position: relative;
     margin: auto;
-  }
+}
   
-  /* Hide the images by default */
-  .mySlides {
+/* Hide the images by default */
+.mySlides {
     display: none;
     
     
-  }
-  .mySlides img{
+}
+.mySlides img{
     height: 500px;
     width: 1000px;
     object-fit: cover;
 }
   
-  /* Number text (1/3 etc) */
-  .numbertext {
+/* Number text (1/3 etc) */
+.numbertext {
     color: #f2f2f2;
     font-size: 12px;
     padding: 8px 12px;
     position: absolute;
     top: 0;
-  }
+}
   
-  /* The dots/bullets/indicators */
-  .dot {
+/* The dots/bullets/indicators */
+.dot {
     cursor: pointer;
     height: 15px;
     width: 15px;
@@ -456,22 +466,22 @@ a{
     border-radius: 50%;
     display: inline-block;
     transition: background-color 0.6s ease;
-  }
+}
   
-  .active, .dot:hover {
+.active, .dot:hover {
     background-color: #717171;
-  }
+}
   
-  /* Fading animation */
-  .fade {
+/* Fading animation */
+.fade {
     animation-name: fade;
     animation-duration: 1.5s;
-  }
+}
   
-  @keyframes fade {
+@keyframes fade {
     from {opacity: .4}
     to {opacity: 1}
-  }
+}
 
 .vision{
     padding: 50px
