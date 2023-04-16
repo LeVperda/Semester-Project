@@ -463,3 +463,9 @@ img {
     padding: 50px
 }
 
+/*settings for canvas*/
+
+canvas {
+    padding: 2%;
+}
+
