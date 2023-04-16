@@ -35,6 +35,7 @@
             </script>
         </div>
 
+
         <!--class will on full screen-->
         <div class="col-12 col-s-12">
             <!--class will on 1-4 columns of the screen-->
@@ -87,10 +88,12 @@
                         <br />
 
                         <button onclick="filter()" type="button">Submit</button>
-                        <input type="reset" />
+                        <input type="reset"/>
                     </label>
                 </div>
             </div>
+
+
 
             <div class="col-6 col-s-6">
                 <div class="graph_selector">
@@ -102,26 +105,39 @@
                         barplot: <button onclick="f_barplot()">barplot</button
                         ><br />
                         <br />
-                        pieplot:
-                        <button onclick="f_pieChart()">pieChart</button>
-                    </div>
-                    <div>
-                        <h2 id="all_data" style="text-align: center"></h2>
-                        <h2 id="filtered_data" style="text-align: center"></h2>
-                    </div>
-                </div>
-
-                <div class="col-12 col-s-12">
-                    <div class="col-6 col-s-6">
-                        <canvas id="barChart" class="charts"></canvas>
+                        pieplot:<button onclick="f_pieChart()">pieChart</button>
                     </div>
 
-                    <div class="col-6 col-s-6">
-                        <canvas id="pieChart" class="charts"></canvas>
-                    </div>
+
+
                 </div>
+
+                <div class="col-6 col-s-6">
+                    <h2 id="all_data" style="text-align: center"></h2>
+                    <h2 id="filtered_data" style="text-align: center"></h2>
+                </div>
+
+
+
             </div>
-            <br />
+
+            <div class="col-12 col-s-12">
+                <div class="col-6 col-s-6">
+                    <canvas id="barChart" class="charts"></canvas>
+                </div>
+
+                <div class="col-6 col-s-6">
+                    <canvas id="pieChart" class="charts"></canvas>
+                </div>
+
+            </div>
+            <br>
+            <br>
+
+
+
+
+            
 
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
@@ -265,8 +281,7 @@
 
                 // show the lenght of filtered data
                 if (filtered_df.length != df.length) {
-                    document.getElementById("filtered_data").innerHTML =
-                        "amount filtered data: " + filtered_df.length;
+                    document.getElementById("filtered_data").innerHTML = "amount filtered data: " + filtered_df.length;
                 } else {
                     document.getElementById("filtered_data").innerHTML = "";
                 }
@@ -364,16 +379,10 @@
             <ul>
                 <li><a href="https://www.lapinamk.fi/">Lapin amk</a></li>
                 <li><a href="https://www.rovaniemi.fi/">Rovaniemi city</a></li>
-                <li>
-                    <a href="https://sdgs.un.org/goals"
-                        >UN - Sustainable goals</a
-                    >
-                </li>
+                <li><a href="https://sdgs.un.org/goals">UN - Sustainable goals</a></li>
                 <li><a href="https://www.luke.fi/en">Luke</a></li>
                 <li><a href="https://www.foreca.fi/">Weather</a></li>
-                <li>
-                    <a href="https://www.visitrovaniemi.fi/">Visit Rovaniemi</a>
-                </li>
+                <li><a href="https://www.visitrovaniemi.fi/">Visit Rovaniemi</a></li>
             </ul>
         </footer>
     </body>
