@@ -18,11 +18,9 @@
 
     </head>
 
-    <body>
-        <!--header for the web page-->
-        <header>
-
-        </header>
+<body>
+  <!--header for the web page-->
+  <header>
 
     <div class="hyperlinks">
         <script>
@@ -31,68 +29,75 @@
             });
         </script>
     </div>
+  </header>
+
     <!-- Slideshow container -->
-<div class="slideshow-container">
+    <div class="col-12 col-s12 slideshow-container">
 
-    <!-- Full-width images with number and caption text -->
-    <div class="mySlides fade">
-      <div class="numbertext">1 / 2</div>
-      <img src="slide_harold.png">
-      <div class="caption">Caption Text</div>
-    </div>
+      <!-- Full-width images with number and caption text -->
+      <div class="mySlides fade">
   
-    <div class="mySlides fade">
-      <div class="numbertext">2 / 2</div>
-      <img src="slide_harold2.png">
-      <div class="caption">Caption Two</div>
+        <img class="slide_img" src="group2.png" style="width:100%">
+      </div>
+
+      <div class="mySlides fade">
+       
+        <img class="slide_img" src="slide_harold2.png" style="width:100%">
+      </div>
+
+      <div class="mySlides fade">
+       
+        <img class="slide_img" src="slide_harold.png" style="width:100%">
+      </div>
     </div>
-</div>
-  <br>  
-  
-  <!-- The dots/circles -->
-  <div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-  </div>
-  <script>
-    let slideIndex = 0;
-    showSlides();
-    
-    function showSlides() {
-      let i;
-      let slides = document.getElementsByClassName("mySlides");
-      let dots = document.getElementsByClassName("dot");
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
-      }
-      slideIndex++;
-      if (slideIndex > slides.length) {slideIndex = 1}    
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex-1].style.display = "block";  
-      dots[slideIndex-1].className += " active";
-      setTimeout(showSlides, 2000); // Change image every 2 seconds
-    }
-    </script>
+    <br>
 
-
+    <!-- The dots/circles -->
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+        
+        <script>
+          let slideIndex = 0;
+          showSlides();
+          
+          function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+          }
+          </script>
+          
+          <h1 style="text-align: center; padding: 30px; font-size: 50px;">Project: Berry Nice</h1>
     <div class="row">
 
-        <div class="col-12 col-s-12">
+      <div class="col-12 col-s-12">
 
-            <div class="col-8 col-s-8 vision">
-                <h1 style="text-align: center;">Our vision</h1>
-                <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente animi nihil ullam excepturi, assumenda nulla tenetur libero velit quos debitis tempora qui iusto autem voluptate mollitia repellendus ducimus in fugiat accusantium id at, aliquid doloremque alias! Tempora omnis itaque aliquid, ea minima vitae quae veritatis! Asperiores perferendis rem harum esse facere sed architecto, tenetur delectus odit eos nesciunt ullam nobis sapiente at! Rem molestias esse, aspernatur soluta tempore eum fuga optio et magni sit eos sed, aperiam ullam excepturi totam voluptatem similique sunt aut odit praesentium exercitationem? Obcaecati incidunt sequi voluptate eos. Inventore, harum ducimus id tempora voluptate excepturi ex, magni tempore est in architecto, natus enim quasi ratione. Odio voluptatum molestias sequi sit deleniti. Esse itaque, minima aspernatur perferendis voluptatum sint nisi, amet omnis corrupti ullam quisquam quos error. Non error, rerum facilis adipisci earum nihil natus doloribus eaque sequi vitae! Pariatur explicabo fugiat odit eveniet eligendi. Tempore culpa voluptatibus ducimus? Perspiciatis quia consequatur omnis laboriosam quas dignissimos animi vitae dolorum sunt. Corrupti, deleniti aliquam? Error ex voluptatum voluptatem amet qui? Optio itaque nisi dignissimos eligendi non quidem ab assumenda quam, sunt culpa voluptatem reprehenderit. Qui nesciunt nostrum voluptatum nobis deserunt, recusandae perferendis libero minima quas porro, laborum harum iste at. Rerum deserunt omnis tempore facere alias totam necessitatibus error, labore, nobis iusto eligendi magnam ipsa id eaque. Quibusdam delectus suscipit ut, numquam esse eaque. Omnis necessitatibus nam est doloribus perferendis tempora rerum, dolore natus. Deserunt eum consectetur aperiam quisquam velit, id nihil porro enim temporibus, neque cupiditate. Quos labore dicta reprehenderit, nulla sunt possimus consectetur architecto maxime non exercitationem laborum facilis temporibus voluptatibus eveniet eos assumenda, itaque quidem eius deserunt. Minima aspernatur vero mollitia voluptatem laboriosam animi, blanditiis qui amet. Saepe odio corrupti ullam vero distinctio repudiandae maiores nostrum. Ab rem id corporis incidunt praesentium deleniti provident dicta!
-                </p>
-            </div>
-            <div class="col-4 col-s-4 video"> <!---->
-                <iframe width="400" height="250"
-                src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=0&mute=1">
-                </iframe> 
+        <div class="col-8 col-s-8 vision">
+              <h1 style="text-align: center;">Our vision</h1>
+              <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente animi nihil ullam excepturi, assumenda nulla tenetur libero velit quos debitis tempora qui iusto autem voluptate mollitia repellendus ducimus in fugiat accusantium id at, aliquid doloremque alias! Tempora omnis itaque aliquid, ea minima vitae quae veritatis! Asperiores perferendis rem harum esse facere sed architecto, tenetur delectus odit eos nesciunt ullam nobis sapiente at! Rem molestias esse, aspernatur soluta tempore eum fuga optio et magni sit eos sed, aperiam ullam excepturi totam voluptatem similique sunt aut odit praesentium exercitationem? Obcaecati incidunt sequi voluptate eos. Inventore, harum ducimus id tempora voluptate excepturi ex, magni tempore est in architecto, natus enim quasi ratione. Odio voluptatum molestias sequi sit deleniti. Esse itaque, minima aspernatur perferendis voluptatum sint nisi, amet omnis corrupti ullam quisquam quos error. Non error, rerum facilis adipisci earum nihil natus doloribus eaque sequi vitae! Pariatur explicabo fugiat odit eveniet eligendi. Tempore culpa voluptatibus ducimus? Perspiciatis quia consequatur omnis laboriosam quas dignissimos animi vitae dolorum sunt. Corrupti, deleniti aliquam? Error ex voluptatum voluptatem amet qui? Optio itaque nisi dignissimos eligendi non quidem ab assumenda quam, sunt culpa voluptatem reprehenderit. Qui nesciunt nostrum voluptatum nobis deserunt, recusandae perferendis libero minima quas porro, laborum harum iste at. Rerum deserunt omnis tempore facere alias totam necessitatibus error, labore, nobis iusto eligendi magnam ipsa id eaque. Quibusdam delectus suscipit ut, numquam esse eaque. Omnis necessitatibus nam est doloribus perferendis tempora rerum, dolore natus. Deserunt eum consectetur aperiam quisquam velit, id nihil porro enim temporibus, neque cupiditate. Quos labore dicta reprehenderit, nulla sunt possimus consectetur architecto maxime non exercitationem laborum facilis temporibus voluptatibus eveniet eos assumenda, itaque quidem eius deserunt. Minima aspernatur vero mollitia voluptatem laboriosam animi, blanditiis qui amet. Saepe odio corrupti ullam vero distinctio repudiandae maiores nostrum. Ab rem id corporis incidunt praesentium deleniti provident dicta!
+              </p>
+        </div>
+          <div class="col-4 col-s-4 video"> <!---->
+            <iframe width="400" height="250"
+            src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=0&mute=1">
+            </iframe> 
                 
-            </div>
+          </div>
 
             <div class="col-12 col-s-12">
               <img class="Logo" src="kuksa.png" alt="About us" />
@@ -103,24 +108,19 @@
     </div>
           
    
-    <footer>
-        <h2>Useful links</h2>
-        <ul>
-            
-            <li><a href="https://www.lapinamk.fi/">Lapin amk</a> </li>
-            <li><a href="https://www.rovaniemi.fi/">Rovaniemi city</a></li>
-            <li><a href="https://sdgs.un.org/goals">UN - Sustainable goals</a></li>
-            <li><a href="https://www.luke.fi/en">Luke</a> </li>
-            <li><a href="https://www.google.com/">Google</li>
-            <li><a href="https://www.foreca.fi/">Weather</a> </li>
-            <li><a href="https://www.visitrovaniemi.fi/">Visit Rovaniemi</a></li> 
-
+  <footer>
+      <h2>Useful links</h2>
+      <ul>
+        <li><a href="https://www.lapinamk.fi/">Lapin amk</a> </li>
+        <li><a href="https://www.rovaniemi.fi/">Rovaniemi city</a></li>
+        <li><a href="https://sdgs.un.org/goals">UN - Sustainable goals</a></li>
+        <li><a href="https://www.luke.fi/en">Luke</a> </li>
+        <li><a href="https://www.google.com/">Google</li>
+        <li><a href="https://www.foreca.fi/">Weather</a> </li>
+        <li><a href="https://www.visitrovaniemi.fi/">Visit Rovaniemi</a></li> 
         </ul>
     </footer>
             
 
-
-
-
-    </body>
+  </body>
 </html>
