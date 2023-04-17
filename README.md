@@ -29,3 +29,9 @@ run this to restart MySQL server:
 - sudo systemctl restart mysql.service
 
 Afther that, you should be able to login as a root again, and continue.
+
+
+WHEN RUNNING WEBSITE LOCALLY
+
+you can run the FLASK_APP=BerryNiceApp_server.py
+everything else should work normally
