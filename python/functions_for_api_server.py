@@ -113,6 +113,11 @@ def posting_berry_data(data):
     # executing the command and the values
     mycursor.executemany(sql, val)
 
+    # updating region_counters
+    msql = "UPDATE region_counters SET count=count+1 WHERE region LIKE %s"
+    mval = region
+    mycursor.execute(msql, mval)
+
     # commit
     mydb.commit()
 
