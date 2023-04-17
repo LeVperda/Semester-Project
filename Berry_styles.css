@@ -488,6 +488,13 @@ a{
     padding: 50px
 }
 
+/*settings for canvas*/
+
+canvas {
+    padding: 2%;
+    overflow: hidden;
+}
+
 /* Map Styles */
 
 path:hover {

@@ -43,11 +43,11 @@
 
         <script>
             $.getJSON('/map_data', function(data) {
-                for (var i = 0; i <data.length; i++) {
+                for (var i = 0; i < data.length; i++) {
                     var item = data[i];
-                    var element = document.getElementById(item.id);
+                    var element = document.getElementById(item.html_id);
                     if (element) {
-                        element.innerHTML = item.text;
+                        element.innerHTML = item.count;
                 }
             }
             });
