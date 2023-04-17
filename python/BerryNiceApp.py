@@ -8,9 +8,9 @@ from logging import FileHandler,WARNING
 # connecting to the mysql database
 mydb = mysql.connect(
     host="localhost",
-    port="3309",
+    port="3306",
     user="root",
-    password="Kg39562K!jkm",
+    password="voivittu",
     database="berry_nice",
     auth_plugin="mysql_native_password"
 )

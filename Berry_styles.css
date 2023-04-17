@@ -2,8 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-   
-
+    font-family: Georgia, serif;
 
 }
 
@@ -16,8 +15,7 @@
     text-decoration: none;
     list-style: none;
     overflow: hidden;
- 
-    
+
 }
 
 /* Text designs */
@@ -29,6 +27,7 @@
     overflow: hidden;
 
 }
+
 
 /* Add a black background color to the top navigation */
 .container {
@@ -75,9 +74,8 @@
 }
 
 header {
-    background-color: #31816e;
+    background-color: #07493b;
     text-align: center;
-    color: #bd9774;
 
 }
 
@@ -90,6 +88,7 @@ body {
 
     display: flex;
     flex-direction: column;
+    
 }
 
 .row::after {
@@ -104,11 +103,22 @@ footer {
     text-align: center;
     list-style: none;
     text-decoration: none;
+
     height: 200px;
     width: 100%;
-
+    padding: 10px;
+    
     margin-top: auto;
+    
+}
 
+footer h2{
+    text-decoration: underline;
+    padding: 10px;
+}
+
+footer a:hover{
+    color: #717171;
 }
 
 
@@ -123,7 +133,7 @@ footer {
 [class="Logo"] {
     width: 300px;
     height: 250px;
-    float:right;
+    float:center;
     
 }
 
@@ -165,6 +175,11 @@ th {
     height: 25px;
 }
 
+.graph_buttons{
+    text-align: left;
+    padding:10px;
+    
+}
 
 /* For insert data table */
 form {
@@ -172,7 +187,7 @@ form {
     padding: 20px;
     padding-left: 20px;
     
-    width: 40%;
+    width: 60%;
     height: auto;
 
     margin-top: 10px;
@@ -182,23 +197,28 @@ form {
     text-align: center;
     background-color: #53723a;
     border-radius: 5px;
+    border: 3px solid
     
 }
 
 #first {
     padding: 10px;
+    margin: 5px;
     display: inline-block;
-    width: 50%;
-    float: left;
+    width: 40%;
+    
+    background-color: #d8d8d85f;
 
     overflow: hidden;
 }
 
 #second {
     padding: 10px;
+    margin:10px;
     display: inline-block;
-    width: 50%;
+    width: 40%;
     overflow:hidden;
+    background-color: #d8d8d85f;
 }
 
 #third {
@@ -212,43 +232,11 @@ form {
 #fourth{
     align-items: center;
 }
-
-/*submit button*/
-button[type=button] {
-    float:left;
-    width: 100px;
-    background-color: #b68d3a;
-    color: rgb(8, 8, 8);
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    overflow: hidden;
-    cursor: pointer;
-
-}
-button[type=button]:hover {
-    background-color: #aa3763;
-}
-
-
-/*Reset button*/
-input[type=reset] {
-    float:right;
-    width: 100px;
-    background-color: #b68d3a;
-    color: rgb(8, 8, 8);
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    overflow: hidden;
-    cursor: pointer;
-
-}
-
-input[type=reset]:hover {
-    background-color: #aa3763;
+/*insert data column for text*/
+.insert{
+    background-color: #d8d8d85f;
+    padding:10px;
+    margin:10px ;
 }
 
 
@@ -261,17 +249,28 @@ input[type=reset]:hover {
 .agenda{
     float: left;
     padding: 50px 200px;
+    
 }
 
 .intro{ /*the info text*/
     position: center;
     padding: 20px
+
 }
 
 /*Our goals and values text*/
 .values{
+  padding: 20px;
+}
+
+.goals{
+    
+    padding:10px; 
+    background-color: #bcdacf90;
     position:center;
-    padding:20px 100px;
+    padding:50px 200px; 
+    width:70%;
+    
 }
 
 /* show data styles */
@@ -284,21 +283,23 @@ input[type=reset]:hover {
     min-height: 100px;
 
     float: left;
+   
 
     position: relative;
-
-    text-align: left;
     
     border: 1px solid#04AA6D;
+    background-color: #53723a;
+    padding: 10px;
 
     
 }
 
 #show_data_buttons {
     border: 1px solid pink;
-    text-align: right;
+    margin:5px;
+    text-align: left;
+    padding: 10px
 }
-
 
 /* For responsive website */
 @media only screen and (min-width: 600px) {
@@ -337,28 +338,22 @@ input[type=reset]:hover {
 
 .column {
     position: relative;
-    width: 50%;
+    width: 100%;
+    
 }
 .side_image {
     opacity: 1;
     display: block;
-    width: 100%;
+    width: 50%;
     height: auto;
     transition: .5s ease;
     backface-visibility: hidden;
+    margin-left: auto;
+    margin-right: auto;
+
+
 }
 
-/*box for text inside the pic*/
-.middle {
-    transition: .5s ease;
-    opacity: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    text-align: center;
-}
 
 .column:hover .side_image {
     opacity: 0.3;
@@ -367,13 +362,45 @@ input[type=reset]:hover {
 .column:hover .middle {
     opacity: 1;
 }
+.overlay {
+    position: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 50%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #92bec49b;
+  }
+  
+.column:hover .overlay {
+    opacity: 1;
+  }
   
 /*Text inside the hoverable pic*/
 .text {
-    background-color: #ebb341;
-    
-    
-    padding: 16px 32px;
+
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+   
+}
+
+.text a{
+    text-decoration: underline;
+    font-size: 25px
+}
+
+.text a:hover{
+    color:#717171
 }
 /*This is where hover functions end*/
 
@@ -381,82 +408,80 @@ input[type=reset]:hover {
 .staff{
     margin-left:10px;
 }
-
+ul{
+    list-style-type: none;
+}
 a{
     text-decoration: none;
+    
     color: rgb(0, 0, 0);
     font-weight: bold;
     font-size: 16px;
 }
 
-/*Slide show*/
-.mySlides {
-    display: none;
+.slider-frame{
+    overflow: hidden;
+    height: 800px;
+    width: 1200px;
+    margin-left: 360px;
+    margin-top: 20px;
 }
 
-img {
-    vertical-align: middle;
-    width: 100%;
-    height:150px;
-}
 
 /* Slideshow container */
 .slideshow-container {
-  width: 100%;
-  position: relative;
-  margin: auto;
+    max-width: 1000px;
+    max-height: 350px;
+    position: relative;
+    margin: auto;
+}
   
+/* Hide the images by default */
+.mySlides {
+    display: none;
+    
+    
 }
-
-/* Caption text */
-.caption {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
+.mySlides img{
+    height: 500px;
+    width: 1000px;
+    object-fit: cover;
 }
-
-/* Number text (1/2 etc) */
+  
+/* Number text (1/3 etc) */
 .numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
 }
-
+  
 /* The dots/bullets/indicators */
 .dot {
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
 }
-
-.active {
-  background-color: #717171;
+  
+.active, .dot:hover {
+    background-color: #717171;
 }
-
+  
 /* Fading animation */
 .fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
 }
-
+  
 @keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .text {font-size: 11px}
+    from {opacity: .4}
+    to {opacity: 1}
 }
 
 .vision{
