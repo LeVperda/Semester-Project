@@ -463,3 +463,15 @@ img {
     padding: 50px
 }
 
+/* Map Styles */
+
+path:hover {
+    fill: rgb(74, 74, 255);
+    transition: fill 0.3s;
+}
+
+#mapsection {
+    fill: white;
+    stroke: black;
+    stroke-width: 1px;
+}
