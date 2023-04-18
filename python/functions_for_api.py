@@ -11,7 +11,7 @@ mydb = mysql.connect(
     host="localhost",
     port="3306",
     user="root",
-    password="voivittu",
+    password="Kg39562K!jkm",
     database="berry_nice",
     auth_plugin="mysql_native_password"
 )
