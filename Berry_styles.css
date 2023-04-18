@@ -495,3 +495,25 @@ canvas {
     overflow: hidden;
 }
 
+/* Map Styles */
+
+path:hover {
+    fill: rgb(74, 74, 255);
+    transition: fill 0.3s;
+}
+
+#mapsection {
+    fill: white;
+    stroke: black;
+    stroke-width: 1px;
+}
+
+.maptext {
+    fill:black;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+}
+
+svg {
+    height: 100%;
+}
