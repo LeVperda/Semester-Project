@@ -510,4 +510,10 @@ path:hover {
 
 .maptext {
     fill:black;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+}
+
+svg {
+    height: 100%;
 }

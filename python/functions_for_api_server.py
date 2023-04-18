@@ -50,7 +50,7 @@ def getalldata():
 # --------------------------------------------------------
 # getting map data
 def getmapdata():
-    mycursor.execute("SELECT html_id, count FROM berry_nice.region_counts;")
+    mycursor.execute("SELECT html_id, count, bilberry, lingonberry, cloudberry FROM berry_nice.region_counts;")
 
     myresult = mycursor.fetchall()
 
