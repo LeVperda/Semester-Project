@@ -507,3 +507,7 @@ path:hover {
     stroke: black;
     stroke-width: 1px;
 }
+
+.maptext {
+    fill:black;
+}
