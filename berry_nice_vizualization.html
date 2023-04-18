@@ -33,7 +33,6 @@
         </script>
     </div>
 
-
     <!--class will on full screen-->
     <div class="col-12 col-s-12">
         <!--class will on 1-4 columns of the screen-->
@@ -91,13 +90,11 @@
             </div>
         </div>
 
-
-
         <div class="col-6 col-s-6">
             <div class="graph_selector">
                 <!--selector buttons-->
                 <div>
-                    <h2>Charts from all the data:</h2>
+                    <h2>Charts:</h2>
 
                     <br />
                     barplot: <button onclick="f_barplot()">barplot</button><br />
@@ -105,16 +102,12 @@
                     pieplot:<button onclick="f_pieChart()">pieChart</button>
                 </div>
 
-
-
             </div>
 
             <div class="col-6 col-s-6">
                 <h2 id="all_data" style="text-align: center"></h2>
                 <h2 id="filtered_data" style="text-align: center"></h2>
             </div>
-
-
 
         </div>
 
@@ -186,7 +179,7 @@
                 }
             }
 
-            xvalues = ["bilberry", "lingonberry", "cloudberry"];
+            xvalues = [`bilberry: ${bilberry.length}`, `lingonberry: ${lingonberry.length}`, `cloudberry: ${cloudberry.length}`];
             yvalues = [
                 bilberry.length,
                 lingonberry.length,
@@ -216,7 +209,7 @@
             }
 
             // values for the charts
-            xvalues = ["bilberry", "lingonberry", "cloudberry"];
+            xvalues = [`bilberry: ${bilberry.length}`, `lingonberry: ${lingonberry.length}`, `cloudberry: ${cloudberry.length}`];
             yvalues = [
                 bilberry.length,
                 lingonberry.length,
@@ -322,6 +315,7 @@
             console.log(yvalues);
             const ctx = document.getElementById("barChart");
 
+
             new Chart(ctx, {
                 type: "bar",
                 data: {
@@ -340,11 +334,9 @@
                             beginAtZero: true,
                         },
                     },
+
                 },
-
             });
-
-
 
         }
 
