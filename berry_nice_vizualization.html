@@ -85,7 +85,7 @@
                     <br />
 
                     <button onclick="filter()" type="button">Submit</button>
-                    <input type="reset" />
+                    <input type="reset" value="reset page" onclick="history.go(0)">
                 </label>
             </div>
         </div>
@@ -179,7 +179,7 @@
                 }
             }
 
-            xvalues = [`bilberry: ${bilberry.length}`, `lingonberry: ${lingonberry.length}`, `cloudberry: ${cloudberry.length}`];
+            xvalues = [`bilberry`, `lingonberry`, `cloudberry`];
             yvalues = [
                 bilberry.length,
                 lingonberry.length,
@@ -209,7 +209,7 @@
             }
 
             // values for the charts
-            xvalues = [`bilberry: ${bilberry.length}`, `lingonberry: ${lingonberry.length}`, `cloudberry: ${cloudberry.length}`];
+            xvalues = [`bilberry`, `lingonberry`, `cloudberry`];
             yvalues = [
                 bilberry.length,
                 lingonberry.length,
@@ -222,6 +222,7 @@
 
         // filtered data
         function filter() {
+            console.log("filter")
             filtered_df = df;
 
             // get the data from option inputs
@@ -340,9 +341,6 @@
 
         }
 
-        function berry_data_filtered(){
-       ctx.berry_data_all(0, 0, ctx.canvas.width, ctx.canvas.height);
-       }
         // function for making a pieplot
         function f_pieChart() {
             const ctx = document.getElementById("pieChart");

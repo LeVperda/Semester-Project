@@ -201,7 +201,7 @@ form {
     
 }
 
-#first {
+#given_cordinates {
     padding: 10px;
     margin: 5px;
     display: inline-block;
@@ -212,7 +212,7 @@ form {
     overflow: hidden;
 }
 
-#second {
+#input_type {
     padding: 10px;
     margin:10px;
     display: inline-block;
@@ -221,7 +221,7 @@ form {
     background-color: #d8d8d85f;
 }
 
-#third {
+#date_input {
     padding: 10px;
     display: inline-block;
     width: 100%;
@@ -229,7 +229,7 @@ form {
 
 }
 
-#fourth{
+#input_buttons{
     align-items: center;
 }
 /*insert data column for text*/

@@ -52,8 +52,8 @@
         <br>
 
         <!--show the wanted berry-->
-        <label for="sort">Show berry:</label>
-        <select name="sort" id="sort" >
+        <label for="filer_berry">Show berry:</label>
+        <select name="filer_berry" id="filer_berry" >
             <option value="all">all berries</option>
             <option value="cloudberry">cloudberry</option>
             <option value="bilberry">bilberry</option>
@@ -62,6 +62,14 @@
         </select>
         <br>
         <br>
+        <!--show the wanted year-->
+        <b>first data starts from year 2018</b>
+        <br>
+        <br>
+        <label for="sort_year">show year:</label>  
+        <input type="number" min="2016" max="2099" step="1" id="sort_year"/>
+    
+                
 
         <!--buttons to activate the functions-->
         <div id="show_data_buttons">
@@ -75,7 +83,7 @@
             <br>
             <br>
     
-            <input type="reset" value="reset">
+            <input type="reset" value="reset page" onclick="history.go(0)">
 
         </div>
    
@@ -116,14 +124,25 @@
 
             var amount_of_rows = document.getElementById("list_len").value
 
-            var berry_type = document.getElementById("sort").value
+            var berry_type = document.getElementById("filer_berry").value
 
             var berry = selected_berry_type(berry_type, data)
+
+            var year = document.getElementById("sort_year").value
+
+            console.log(`wanted year ${year}`)
 
 
             console.log("Amount of rows wanted: " + amount_of_rows)
 
             input_data = data
+            console.log(input_data)
+
+            if (year != "") {
+                console.log(`year found: ${year}`)
+                berry = berry.filter((el) => el.year == year)
+            }
+
 
             // header for the table
             var table = "<th>select</th><th>Log id</th><th>Berry</th><th>forest_development_class</th><th>main_tree_type</th><th>year</th><th>month</th><th>day</th><th>week_number</th><th>lat</th><th>lon</th>";
@@ -138,14 +157,13 @@
                     
                 } 
             
-        } else {
-                // loop trough the data to show wanted amount of rows
-                for (i = 0; i < amount_of_rows; i++) {
+                } else {
 
-                    // insert data to the table one row at the time
-                    table += `<tr><td><input type="radio" name="selected" value=${i}></td><td>${berry[i].log_id}</td><td>${berry[i].berry}</td><td>${berry[i].forest_development_class}</td><td>${berry[i].main_tree_type}</td><td>${berry[i].year}</td><td>${berry[i].month}</td><td>${berry[i].day}</td><td>${berry[i].week_number}</td><td>${berry[i].lat}</td><td>${berry[i].lon}</td></tr>`
+                    // loop trough the data to show wanted amount of rows
+                    for (i = 0; i < amount_of_rows; i++) {
 
-                
+                        // insert data to the table one row at the time
+                        table += `<tr><td><input type="radio" name="selected" value=${i}></td><td>${berry[i].log_id}</td><td>${berry[i].berry}</td><td>${berry[i].forest_development_class}</td><td>${berry[i].main_tree_type}</td><td>${berry[i].year}</td><td>${berry[i].month}</td><td>${berry[i].day}</td><td>${berry[i].week_number}</td><td>${berry[i].lat}</td><td>${berry[i].lon}</td></tr>`
                 }}
 
             // show the data to the user
