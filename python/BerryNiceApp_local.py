@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 import mysql.connector as mysql
-import functions_for_api as functions
+import functions_for_api_local as functions
 from flask_cors import CORS
 
 from logging import FileHandler,WARNING
