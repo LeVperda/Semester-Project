@@ -90,7 +90,7 @@
             </div>
         </div>
 
-        <div class="col-6 col-s-6">
+        <div class="col-2 col-s-2">
             <div class="graph_selector">
                 <!--selector buttons-->
                 <div>
@@ -104,21 +104,32 @@
 
             </div>
 
-            <div class="col-6 col-s-6">
-                <h2 id="all_data" style="text-align: center"></h2>
-                <h2 id="filtered_data" style="text-align: center"></h2>
+        </div>
+
+        <div class="col-2 col-s-2">
+            <div class="git_notebook">
+                <b>here is our notebook for more deeper analyzis</b>
+                <br>
+                <button id="on_git" onclick="show_on_git()">Submit</button>
             </div>
 
         </div>
 
-        <div class="col-12 col-s-12">
-            <div class="col-6 col-s-6">
+        <div class="col-4 col-s-4">
+            <h2 id="all_data" style="text-align: center"></h2>
+            <h2 id="filtered_data" style="text-align: center"></h2>
+        </div>
+
+        <div class="col-4 col-s-4">
+            <div class="col-4 col-s-4">
                 <canvas id="barChart" class="charts"></canvas>
             </div>
 
-            <div class="col-6 col-s-6">
+            <div class="col-4 col-s-4">
                 <canvas id="pieChart" class="charts"></canvas>
             </div>
+
+
 
         </div>
         <br>
@@ -363,6 +374,16 @@
                     },
                 },
             });
+        }
+
+        // show the git
+        function show_on_git() {
+
+            var url = "https://3seaseurope.com/wp-content/uploads/2022/07/1-harold.webp"
+
+            window.open(url, "_blank")
+
+
         }
     </script>
 
