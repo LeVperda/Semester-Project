@@ -32,9 +32,37 @@
             });
         </script>
     </div>
+    <div class="col-8 col-s-8 research">
+        <h1>Research</h1>
+        <br>
+        <h3>Introduction</h3>
+        <p>
+            This small research idea is that we would take the whole journey from the beginning to the end with the readers and keep them interested for as much time as we could. We've tried to make almsot a detective story out of it.
+        </p> 
+        <p>
+            At this page you can see our logic, our questions and the way how we were thinking during the research.
+            We've choosen this way to present our thoughts, because data, graphs and other things might be boring for someone, which is quite understandable.
+        </p>
+        <br>
+        <h3>How it all started?</h3>
+        <p>
+            In the beginning, we've been provided with a ripe berry data by <a href="https://www.luke.fi/en">Natural Resources Institute of Finland (LUKE)</a>.
+            One of the main goals was LUKE's data analysis and visualization.
+        </p>
+        <p>
+            The original data consists of information about observation's spot location, type of trees growing nearby, nearby forest development class, type of the berry and
+            date of observation. Original dataset includes less than 1000 rows in it (which is not much). 
+            Since the data is quite limited, we've tried to keep in mind that some of our conclusions could be true only because lack of the data. We will actually face this problem further.
+        </p>
+        <br>
+        <p>
+            In the next section you can take a little bit closer look on that original data. You can play around and build some charts by yourself.
+            This will help you to understand the consinstency of the data.
+        </p>
 
+    </div>
     <!--class will on full screen-->
-    <div class="col-12 col-s-12">
+    <div class="col-12 col-s-12 data_intro">
         <!--class will on 1-4 columns of the screen-->
         <div class="col-4 col-s-4">
             <div class="graph_buttons">
@@ -379,13 +407,221 @@
         // show the git
         function show_on_git() {
 
-            var url = "https://3seaseurope.com/wp-content/uploads/2022/07/1-harold.webp"
+            var url = "https://github.com/LeVperda/Semester-Project/blob/ef6715c56467697462eb21974a732d285bb7b3b8/python/Analytics%20and%20visualization/data_visualization.ipynb"
 
             window.open(url, "_blank")
 
 
         }
     </script>
+    <div class="col-8 col-s-8 research">
+        <h3>Original data</h3>
+        <br>
+        <p>
+            As you could see, the original data is quite simple. 
+            Based on it we could say that some berries like some trees more than others. 
+            Also we could build few charts using which we could visualize proportions of berries and trees (you just did in the previous section).
+            <br>
+            And, since we have the coordinates, we could visualize location of berries.
+            <br>
+            Shall we?
+        </p>
+        <div class="img_container">
+            <img src="images/visuliazation_page/region_map.png" alt="Map of regions">
+        </div>
+        <p>
+            Please keep in mind, that this map is not very accurate. 
+            But it gives us the general picture of the distribution of different berry types across the Finland.
+        </p>
+        <p>So, what conclusions could be made?</p>
+        <br>
+        <ol class="txt_list">
+            <li>
+                Cloudberry likes to grow in more Northern parts of Finland. 
+            </li>
+            <li>
+                Lingonberry prefers southern regions. Looking back at Finnish winters we can't blame it, right?
+            </li>
+            <li>
+                Bilberry is not heavily presented at middle part of Finland.
+            </li>
+            <li>
+                Last but not least, Lapland and few other northern regions look quite empty. Problem here is not in the berries, but in the lack of people to do the observations. 
+                That's one of the reasons why we have <a href="berry_nice_insert_data_page.html">data collecting</a> page.
+            </li>
+        </ol>
+        <br>
+        <p>
+            You've probably already played around the information about berry types through out different years, 
+            but let's refresh our memories and take a look back on the amount of berries (observations of ripe berries to be more accurate)
+        </p>
+        <div class="img_container">
+            <img src="images/visuliazation_page/berry_count_plot.png" alt="Map of regions">
+        </div>
+        <p>
+            On this plot there few interesting things as well:            
+        </p>
+        <ol class="txt_list">
+            <li>
+                In 2019, amount of observations of bilberries and cloudberries has noticably decreased.
+            </li>
+            <li>
+                At a same time, lingonberry was not affected.
+            </li>
+            <li>
+                In 2021 and 2022 something has affected bilberry and cloudebrry so that bilberry yield was weaker in 2021 and greater in 2022 and opposite for cloudberry.
+            </li>
+            <li>
+                Amount of lingonberry just keep growing.
+            </li>
+        </ol>
+        <br>
+        <p>Next plot is a little bit more complicated. It shows how the observations are distributed through different years.</p>
+        <p>
+            You can interpretate Y-axis as berry growth time period (basically summer) with the beginning at lowest point (May) and end at the highest (October).
+            Each points inside the plot represents one observation of ripe berry, while "waves" on the sides represent total amount of observations yearly (X-axis) and monthly (Y-axis).
+        </p>
+        <div class="img_container">
+            <img src="images/visuliazation_page/joint_year_time_plot.png" alt="Map of regions">
+        </div>
+        <br>
+        <p>Main points of this plot that we can observe:</p>
+        <ol class="txt_list">
+            <li>Usually bilberry and cloudberry are tending to get ripe at almost same time of year, in the the end of June - beginning of July.</li>
+            <li>Lingonberry is later berry. It starts getting ripe in beginning of August.</li>
+            <li>2018 is quite interesting year. First ripe cloudberries were spotted already in May, which is almost a month earlier than usual, as well as a lot of earlier lingonberries. </li>
+        </ol>
+        <br>
+        <p>So, in the first chapter we've taken a deeper look on original data and now we can summ up all of the questions at one place for the further research:</p>
+        <br>
+        <ul class="txt_list">
+            <li>Why cloudberry grows mostly at North?</li>
+            <li>Why lingoberry prefers Southern regions?</li>
+            <li>Why middle Finland almost doesn't have any bilberry?</li>
+            <li>What happened in 2018 when all berries suddenly got ripe way more yearlier than usually</li>
+            <li>What has affected bilberries and cloudberries but not linognberries in 2019?</li>
+            <li>What conditions have affected bilberry and cloudberry in opposite ways in 2021 and 2022?</li>
+            <li>Why amount of lingonberry observations keeps growing?</li>
+        </ul>
+        <br>
+        <p>To answer these questions let's see what factors are able to have an influence in ripenin process </p>
+        <br>
+        <h3>What can possibly affect the berries?</h3>
+        <p>
+            Searching for the answers to that questions we've faced <a href="https://www.arktisetaromit.fi/en/association/">The Arctic Flavours Association</a> webpage which has a lot of information about berries. 
+            Using this information we can easily answer to questions which are habitat related. Let's deal with them.
+        </p>
+        <br>
+        <p>
+            "Cloudberries mostly grow in natural bogs, but can also be found along the sides of new forest ditches and forest roads that traverse bogs. 
+            The undrained wetlands of Northern Finland produce the highest yield."
+        </p>
+        <p>
+            Almost every Finn knows that cloudberry grows in bogs. There are a lot of bogs in Kainuu, Northern Ostrobothnia and Lapland.
+        </p>
+        <br>
+        <p>"Bilberry thrives in herb-rich, mesic and sub-xeric heath forests of southern Finland. In northern Finland, the bilberry is found in slightly drier and more barren heath forests."</p>
+        <p>So, bilberry prefers drier places and doesn't really like bogs. Thats why it is not heavily presented in regions with a higher density of bogs and wetlands.</p>
+        <br>
+        <p>"The lingonberry grows throughout Finland. It is the most common shrub among the types of forest undergrowth found in Finland."</p>
+        <p>
+            The lingoberry question is a little bit tricky. Based on our map there not so much of it growing at North, for example in Lapland. But we have to remember, that the data coming from Lapland is very limited.
+            The second factor we believe might have influence on lingoberry yield at North is that usually the berry get ripe in August, which could be very cold.
+        </p>
+        <br>
+        <p>
+            Looking ahead, in this research we came up to the conclusion, that the highest influence on ripeness of the berries (except geographical details) have weather conditions. 
+            According to the <a href="https://www.arktisetaromit.fi/en/association/">The Arctic Flavours Association</a> there are few factors negatively affecting berries:
+            <br>
+            <ol class="txt_list">
+                <li>Cloudberry doesn't like cloudy days and too much humidity, as well as it is supersensitive to subzero temperatures.</li>
+                <li>Bilberry otherwise typically grow in shadowy locations and doesn't like too much sun. Too dry summer could be harmful as well as subzero temperatures.</li>
+                <li>Lingonberry likes the sun and not so sensitive to subzero temperatures (since the flowering period is few weeks later).</li>
+            </ol>
+        </p>
+        <br>
+        <h3>Joining historical weather data</h3>
+        <p>Since the original data doesn't have any information about weather conditions, we've integrated data from <a href="https://www.visualcrossing.com/resources/documentation/weather-api/timeline-weather-api/">Visual Crossing Weather service</a>.</p>
+        <br>
+        <p>
+            Now, when we have weather information, let's start with observing daily temperature.
+        </p>
+        <div class="img_container">
+            <img src="images/visuliazation_page/yearly_temp_plot.png" alt="Map of regions">
+        </div>
+        <p>Here we can clearly see, that 2018 was really hot. There were a lot of days with average temperature from 15 to 25 degrees. Actually there were more such days than days with temperature from 5 to 15 degrees. This is really rare for Finland.</p>
+        <p>On the other hand 2019 had more days with lower average temperatures, sometimes even close to zero</p>
+        <p>2020 was overall good year, neither hot nor cold. And if you remember one of our plots in the beginning, there wasn't anything "not normal" with amount of observations in this year.</p>
+        <p>2021 seems to be a bit colder than 2022, but the difference even between these years and 2020 is not so great.</p>
+        <br>
+        <p>Speaking about 2018, on the next plots we can also in details see, that starting from July, daily temperature was quite warm.</p>
+        <div class="img_container">
+            <img src="images/visuliazation_page/2018_templine_plot.png" alt="Map of regions">
+            <img src="images/visuliazation_page/2018_tempmin_plot.png" alt="">
+        </div>
+        <p>Daily average temperature, starting from early May almost never have been less than 10 degrees. And daily minimal temperature (on the right) wasn't even close to 0.</p>
+        <br>
+        <p>
+            "The summer of 2018 saw exceptionally high temperatures leading to record-breaking effective temperature sum in large parts of Finland. Years with a similarly warm thermal growing season are expected to become more frequent in the future." © ILARI LEHTONEN, PENTTI PIRINEN
+            Finnish Meteorological Institute
+        </p>
+        <br>
+        <p>So what is effective temperature sum?</p>
+        <br>
+        <p>
+            "The effective temperature sum, or the growing degree day (GDD) sum is a widely used measure of the intensity of thermal growing season (TGS). TGS is defined to begin when the daily mean temperature rises above a selected threshold (5 °C in Finland) in spring and snow has melted from open areas. In autumn, TGS terminates when daily mean temperature falls permanently below the same threshold. GDD sum is then calculated by summing the daily mean temperature excess above the threshold during TGS."
+© ILARI LEHTONEN, PENTTI PIRINEN
+Finnish Meteorological Institute
+        </p>
+        <br>
+        <p>Unfortunately, we don't have enough data to count GDD sum, since we are lacking a lot of days in between observations. But the main thing is that 2018 GDD sum was recordly high.
+            <a href="https://www.ilmastokatsaus.fi/2019/06/19/2018-an-exceptionally-warm-thermal-growing-season-in-finland/">Here</a> you can get familiar with the whole article.
+        </p>
+        <br>
+        <p><b>We believe that based on this we can solve 2018 mystery. Greater amount of growing degree days, warmer daily temperatures and lack of cold or subzero temperatures have created a better conditions for berries to get ripe earlier.</b></p>
+        <br>
+        <p>But what about other years?</p>
+        <p>Let's check out daily minimal temperature:</p>
+        <div class="img_container">
+            <img src="images/visuliazation_page/yearly_mintemp.png" alt="">
+        </div>
+        <p>2019 is the only year with average minimal temperature less than 10 degrees. We are also able to see few outliers with negative temperature. 
+            On the second place is 2021, which were slightly colder than 2020 and 2022.</p>
+        <p>For now let's focus our attention on 2019 and for the start we'll find out how cold it was. Here is a plot showing minimal temperatures during the summer of 2019:</p>
+        <div class="img_container">
+            <img src="images/visuliazation_page/mintemp_2019.png" alt="">
+        </div>
+        <p>
+            There are a lot of really cold days and days with subzero temperature, that could affect reduced growth of both cloudberries and bilberries. And as we already know, subzero temperatures doesn't heavily affect lingoberries.
+            However, there is a small problem. The data we have shows us only ripe berries. In this case our first observation of ripe berry in 2019 was in June. Which means that flowering period happened few weeks ago in May. But it is logical to suppose, that May in 2019 was even colder than summer.
+        </p>
+        <br>
+        <p>The other thing that can inderictly tell us that during 2019 there were a lot of colder days and freezing nights is <a href="https://education.nationalgeographic.org/resource/dew/">dew</a>. </p>
+        <br>
+        <p>
+            "Dew is the result of water changing from vapor to liquid. It usually forms as temperature drop and objects cool down.  Colder air is less able to hold water vapor than warm air. This forces water vapor in the air around cooling objects to condense. 
+            Cold weather can also prevent the formation of dew. As temperatures drop below freezing (0°Celsius), a region may reach its frost point. <b>At a frost point, water vapor does not condense. It sublimates, or changes directly from a gas to a solid.</b> Moisture changes from water vapor to ice."
+        </p>
+        <div class="img_container">
+            <img src="images/visuliazation_page/dew.png" alt="">
+        </div>
+        <p>We can clearly spot the difference between dew amounts of 2018, 2019 and 2020. 2019 Has noticably lower amount.</p>
+        <p>But in order to use this as an argument we also have to take a look on humidity, because in case if 2019 had less humidity than its neighbours, it is logical to suppose that it had less dew as well.</p>
+        <div class="img_container">
+            <img src="images/visuliazation_page/humidity_yearly.png" alt="">
+        </div>
+        <p>
+            Humidity level of 2019 is greater than 2018 and almost the same as 2020. That means that it is correct to use the dew as our "indirect argument". 
+            But the other interesting thing here is that humidity level of year 2021 is a little bit lower than 2020 and 2022. Keep it in mind for now.
+        </p>
+        <br>
+        <p>If we've already started to speak about humidity, let's take a look on historical data of rains:</p>
+        <div class="img_container">
+            <img src="images/visuliazation_page/rains_bar.png" alt="">
+        </div>
+        
+    </div>
+        
 
     <footer>
         <h2>Some links</h2>
