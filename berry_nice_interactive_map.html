@@ -30,13 +30,6 @@
         </script>
     </div>
 
-    <div class="popups">
-        <script>
-            function showPopup(id) {
-                window.open(`pop-ups/popup_${id}.html`, `popup_${id}`, 'width=400, height=400');
-            }
-        </script>
-    </div>
     <div class="col-12 map-container" >
     <svg
     class = "col-3"
@@ -173,48 +166,88 @@
    <option value="cloudberry">Cloudberry</option>
    <option value="lingonberry">Lingonberry</option>
  </select>
+
+ <table id="region_data"></table>
 </div>
 
- <div class="region_count">
-   <script>
-      let url = "http://localhost:5000/map_data"
-      let berrySelect = document.getElementById("berry-select");
 
-      berrySelect.addEventListener("change", () => {
-         fetch(url)
-            .then(response => response.json())
-            .then(data => {
-               for (var i = 0; i < data.length; i++) {
-               var item = data[i];
-               var element = document.getElementById(item.html_id);
-               if (element) {
-                  let berry = berrySelect.value;
-                  element.innerHTML = item[berry];
-               }
-            }
-         })
-         .catch(error => {
-            console.error('Error fetching data:', error);
-         });
-      });
+<script>
+   let url = "http://localhost:5000/map_data"
+   let berrySelect = document.getElementById("berry-select");
 
-
+   berrySelect.addEventListener("change", () => {
       fetch(url)
-        .then(response => response.json())
-        .then(data => {
-          for (var i = 0; i < data.length; i++) {
+         .then(response => response.json())
+         .then(data => {
+            for (var i = 0; i < data.length; i++) {
             var item = data[i];
             var element = document.getElementById(item.html_id);
             if (element) {
-              element.innerHTML = item.count;
+               let berry = berrySelect.value;
+               element.innerHTML = item[berry];
             }
-          }
-        })
-        .catch(error => {
-          console.error('Error fetching data:', error);
-        });
-    </script>
-</div>
+         }
+      })
+      .catch(error => {
+         console.error('Error fetching data:', error);
+      });
+   });
+
+
+   fetch(url)
+      .then(response => response.json())
+      .then(data => {
+         for (var i = 0; i < data.length; i++) {
+         var item = data[i];
+         var element = document.getElementById(item.html_id);
+         if (element) {
+            element.innerHTML = item.count;
+         }
+         }
+      })
+      .catch(error => {
+         console.error('Error fetching data:', error);
+      });
+
+
+
+
+   // function for getting region table, most of the code re-used from showdata_page
+   function showPopup(id) {
+      let table_url = "http://127.0.0.1:5000/berry_data"
+      fetch(table_url)
+         .then(response => response.json())
+         .then(data => createTable(data, id))
+
+      // window.open(`pop-ups/popup_${id}.html`, `popup_${id}`, 'width=400, height=400');
+   }
+
+   function createTable(data, id) {
+      
+      var berry_type = document.getElementById("berry-select").value;
+
+      var berry;
+
+      if (berry_type != "count") {
+         berry = data.filter((el) => el.berry == berry_type);
+      } else {
+         berry = data;
+      }
+      
+      var html_id = id + 'T';
+
+      let berryregion = berry.filter((el) => el.html_id == html_id);
+      
+      var table = "<th>Log id</th><th>Berry</th><th>forest_development_class</th><th>main_tree_type</th><th>year</th><th>month</th><th>day</th><th>week_number</th><th>lat</th><th>lon</th><th>region</th>";
+
+      for (i = 0; i < berryregion.length; i++) {
+         table += `<tr><td>${berryregion[i].log_id}</td><td>${berryregion[i].berry}</td><td>${berryregion[i].forest_development_class}</td><td>${berryregion[i].main_tree_type}</td><td>${berryregion[i].year}</td><td>${berryregion[i].month}</td><td>${berryregion[i].day}</td><td>${berryregion[i].week_number}</td><td>${berryregion[i].lat}</td><td>${berryregion[i].lon}</td><td>${berryregion[i].region}</td></tr>`;
+      }
+
+      document.getElementById("region_data").innerHTML = table;
+   }
+</script>
+
 
     <footer>
         <h2>Some links</h2>
