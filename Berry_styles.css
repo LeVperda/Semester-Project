@@ -200,7 +200,7 @@ form {
     
 }
 
-#first {
+#given_cordinates {
     padding: 10px;
     margin: 5px;
     display: inline-block;
@@ -211,7 +211,7 @@ form {
     overflow: hidden;
 }
 
-#second {
+#input_type {
     padding: 10px;
     margin:10px;
     display: inline-block;
@@ -220,7 +220,7 @@ form {
     background-color: #d8d8d85f;
 }
 
-#third {
+#date_input {
     padding: 10px;
     display: inline-block;
     width: 100%;
@@ -228,7 +228,7 @@ form {
 
 }
 
-#fourth{
+#input_buttons{
     align-items: center;
 }
 /*insert data column for text*/
@@ -516,6 +516,33 @@ path:hover {
 svg {
     height: 100%;
 }
+
+.git_notebook {
+    border: 1px solid black;
+    padding: 1%;
+}
+
+/*Data analytics page, section with interactive charts and data selection*/
+.research {
+    padding: 50px;
+}
+.data_intro {
+    border: 1px solid black;
+    padding: 50px;
+}
+
+.txt_list {
+    padding-left: 5%;
+}
+
+.txt_list li {
+    padding: 1px 0px;
+}
+
+.img_container {
+    margin: 3% 0%;
+}
+
 .tooltip {
     
     display: inline-block;

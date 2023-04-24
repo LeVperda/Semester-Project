@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 import mysql.connector as mysql
-import functions_for_api as functions
+import functions_for_api_local as functions
 from flask_cors import CORS
 
 from logging import FileHandler,WARNING
@@ -10,7 +10,7 @@ mydb = mysql.connect(
     host="localhost",
     port="3306",
     user="root",
-    password="voivittu",
+    password="Kg39562K!jkm",
     database="berry_nice",
     auth_plugin="mysql_native_password"
 )

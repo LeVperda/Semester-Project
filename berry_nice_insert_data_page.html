@@ -42,18 +42,30 @@
     
         <!--first container for the input data-->
         <!--for x and y cordinate inputs-->
-        <div id="first">
-
+        <div id="given_cordinates">
+            <h3>cordinate system used is WGS84</h3>
+            <br>
             <label for="lat">latitude:</label><br>
             <input type="text" id="lat"><br>
+            <br>
+            <b>latitude example: 12.34567</b>
+            
+            <br>
+            <br>
 
             <label for="lon">longitude:</label><br>
             <input type="text" id="lon"><br>
+            <br>
+            <b>longlitude example: 12.34567</b>
+
         </div>
 
         <!--second container for the input data-->
         <!--for forest developement class, tree type and berry type-->
-        <div id="second">
+        <div id="input_type">
+            <b>the forest type where the berry was growing</b>
+            <br>
+            <br>
             <label for="dev_class">forest_development_class:</label>
             <select name="dev_class" id="dev_class">
                 <option value="">value</option>
@@ -98,11 +110,11 @@
 
         <!--third container for the input data-->
         <!--for date information-->
-        <div id="third">
+        <div id="date_input">
             <br>
             <br>
             <label>
-                <b>date berry was ripe:</b>
+                <b>date berry was ripe:</b><br>
                 <input type="date" id="date" value="2000-05-05">
                 <span for="date" class="validity" ></span>
             </label>
@@ -110,7 +122,7 @@
 
         <!--submit button for the page-->
 
-        <div class="fourth">
+        <div class="input_buttons">
             <button onclick="submit_backend()" type="button">Submit</button>
 
             <input type="reset"/>
