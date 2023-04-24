@@ -183,45 +183,56 @@
 
 
 <script>
-   let url = "http://localhost:5000/map_data"
+   let url = "http://localhost:5000/berry_data"
    let berrySelect = document.getElementById("berry-select");
+   let yearSelect = document.getElementById("year-select");
 
-   berrySelect.addEventListener("change", () => {
+   // get the region berry counts
+   updateCounts();
+
+   // update counts whenever a new option is selected
+   berrySelect.addEventListener("change", updateCounts);
+   yearSelect.addEventListener("change", updateCounts);
+
+   // function for updating counts
+   function updateCounts() {
       fetch(url)
-         .then(response => response.json())
+         .then(Response => Response.json())
          .then(data => {
-            for (var i = 0; i < data.length; i++) {
-            var item = data[i];
-            var element = document.getElementById(item.html_id);
-            if (element) {
-               let berry = berrySelect.value;
-               element.innerHTML = item[berry];
+
+            // check the options, filter if necessary
+            if (berrySelect.value != "count") {
+
+                  data = data.filter((el) => el.berry == berrySelect.value);
+               }
+               if (yearSelect.value != "all") {
+
+                  data = data.filter((el) => el.year == parseInt(yearSelect.value));
+               }
+
+            // loop through each map segment   
+            for (var i = 1; i < 20; i++) {
+
+               var index = i.toString().padStart(2, '0');
+               var element = document.getElementById(`FI-${index}T`);
+               var count = 0;
+
+               // loop through the data to find matching entries
+               for (var x = 0; x < data.length; x++) {
+
+                  item = data[x];
+
+                  if (element.getAttribute("id") === item["html_id"]) {
+
+                     count += 1;
+                  }
+               }
+
+               // update the count
+               element.innerHTML = count;
             }
-         }
-      })
-      .catch(error => {
-         console.error('Error fetching data:', error);
-      });
-   });
-
-
-   fetch(url)
-      .then(response => response.json())
-      .then(data => {
-         for (var i = 0; i < data.length; i++) {
-         var item = data[i];
-         var element = document.getElementById(item.html_id);
-         if (element) {
-            element.innerHTML = item.count;
-         }
-         }
-      })
-      .catch(error => {
-         console.error('Error fetching data:', error);
-      });
-
-
-
+         })
+   }
 
    // function for getting region table, most of the code re-used from showdata_page
    function showPopup(id) {
@@ -229,30 +240,32 @@
       fetch(table_url)
          .then(response => response.json())
          .then(data => createTable(data, id))
-
-      // window.open(`pop-ups/popup_${id}.html`, `popup_${id}`, 'width=400, height=400');
    }
 
+   // function for creating the table
    function createTable(data, id) {
       
+      // set variables
       var berry_type = document.getElementById("berry-select").value;
 
       var year = document.getElementById("year-select").value;
 
       var berry;
 
+      // berry selector check and filter
       if (berry_type != "count") {
          berry = data.filter((el) => el.berry == berry_type);
       } else {
          berry = data;
       }
       
+      // set correct region code
       var html_id = id + 'T';
 
+      // region filter
       let berryregion = berry.filter((el) => el.html_id == html_id);
 
-      var data_filtered = berryregion
-
+      // year selector check and filter
       if (year != "all") {
          berryregion = berryregion.filter((el) => el.year == Number(year));
       }
