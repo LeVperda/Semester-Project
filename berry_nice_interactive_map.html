@@ -270,14 +270,17 @@
          berryregion = berryregion.filter((el) => el.year == Number(year));
       }
       
+      // table
       var table = "<th>Log id</th><th>Berry</th><th>forest_development_class</th><th>main_tree_type</th><th>year</th><th>month</th><th>day</th><th>week_number</th><th>lat</th><th>lon</th><th>region</th>";
-
+      
+      // insert rows via a loop
       for (i = 0; i < berryregion.length; i++) {
          table += `<tr><td>${berryregion[i].log_id}</td><td>${berryregion[i].berry}</td><td>${berryregion[i].forest_development_class}</td><td>${berryregion[i].main_tree_type}</td><td>${berryregion[i].year}</td><td>${berryregion[i].month}</td><td>${berryregion[i].day}</td><td>${berryregion[i].week_number}</td><td>${berryregion[i].lat}</td><td>${berryregion[i].lon}</td><td>${berryregion[i].region}</td></tr>`;
       }
 
       document.getElementById("region_data").innerHTML = table;
 
+      // display amount of rows printed
       var rows = berryregion.length
 
       document.getElementById("row_count").innerHTML = "Amount of rows: " + rows;
