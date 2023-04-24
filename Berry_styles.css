@@ -8,7 +8,7 @@
 
 .hyperlinks div {
     display: grid;
-    grid-template-columns: 15% 15% 15% 15% 15%;
+    grid-template-columns: 10% 10% 10% 10% 10% 10%;
     column-gap: 5%;
     row-gap: 50px;
     padding-left: 10%;
@@ -17,7 +17,6 @@
     overflow: hidden;
 
 }
-
 /* Text designs */
 .hyperlinks:after {
     list-style-type: none;
@@ -287,8 +286,8 @@ form {
 
     position: relative;
     
-    border: 1px solid#04AA6D;
-    background-color: #53723a;
+    border: 1px solid#04aa6dba;
+    background-color: #4ab548a3;
     padding: 10px;
 
     
@@ -517,3 +516,28 @@ path:hover {
 svg {
     height: 100%;
 }
+.tooltip {
+    
+    display: inline-block;
+    float:right;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 390px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px 10px;
+
+  
+    /* Position the tooltip */
+    position: absolute;
+    float:right;
+    z-index: 1;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
