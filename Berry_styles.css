@@ -522,3 +522,24 @@ svg {
     border: 1px solid black;
     padding: 1%;
 }
+
+/*Data analytics page, section with interactive charts and data selection*/
+.research {
+    padding: 50px;
+}
+.data_intro {
+    border: 1px solid black;
+    padding: 50px;
+}
+
+.txt_list {
+    padding-left: 5%;
+}
+
+.txt_list li {
+    padding: 1px 0px;
+}
+
+.img_container {
+    margin: 3% 0%;
+}
