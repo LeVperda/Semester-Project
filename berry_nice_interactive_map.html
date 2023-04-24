@@ -161,12 +161,23 @@
  </svg>
 
  <select id="berry-select" class="col-2">
-   <option value="count">Total Berries</option>
+   <option value="count">All Berries</option>
    <option value="bilberry">Bilberry</option>
    <option value="cloudberry">Cloudberry</option>
    <option value="lingonberry">Lingonberry</option>
  </select>
 
+ <select id="year-select" class="col-1">
+   <option value="all">All years</option>
+   <option value="2018">2018</option>
+   <option value="2019">2019</option>
+   <option value="2020">2020</option>
+   <option value="2021">2021</option>
+   <option value="2022">2022</option>
+ </select>
+   <option></option>
+
+ <div id="row_count"></div>  
  <table id="region_data"></table>
 </div>
 
@@ -226,6 +237,8 @@
       
       var berry_type = document.getElementById("berry-select").value;
 
+      var year = document.getElementById("year-select").value;
+
       var berry;
 
       if (berry_type != "count") {
@@ -237,6 +250,12 @@
       var html_id = id + 'T';
 
       let berryregion = berry.filter((el) => el.html_id == html_id);
+
+      var data_filtered = berryregion
+
+      if (year != "all") {
+         berryregion = berryregion.filter((el) => el.year == Number(year));
+      }
       
       var table = "<th>Log id</th><th>Berry</th><th>forest_development_class</th><th>main_tree_type</th><th>year</th><th>month</th><th>day</th><th>week_number</th><th>lat</th><th>lon</th><th>region</th>";
 
@@ -245,6 +264,10 @@
       }
 
       document.getElementById("region_data").innerHTML = table;
+
+      var rows = berryregion.length
+
+      document.getElementById("row_count").innerHTML = "Amount of rows: " + rows;
    }
 </script>
 
