@@ -511,12 +511,17 @@ svg {
 
 /*Data analytics page, section with interactive charts and data selection*/
 .research {
-    p
-    border: 1px solid rgb(33, 30, 30)
+    background-color: #bcdacf90;
+    padding: 50px 100px;
+    margin: auto;
+    margin-top: 50px;
 }
 .data_intro {
-    border: 1px solid black;
-    padding: 50px;
+    border-top: 1px solid #050505;
+    align-items: center;
+    padding: 50px 250px;
+    width:100%;
+  
 }
 
 .txt_list {
@@ -560,3 +565,56 @@ svg {
   table {
     border: none;
   }
+
+  .map_description{
+    position: relative;
+    float: left;
+    background-color: #127c678c;
+    border: 1px solid #050505;
+    margin:auto;
+  }
+.map_table{
+    width: 100px
+    position: fixed;
+    float: right;
+}
+
+.map_h1{
+    text-align: center; 
+    padding-right:100px; 
+    padding-bottom: 30px;
+    padding-top: 30px;
+    
+}
+
+/*nav bar for vizualisation page*/
+.sidenav {
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    height: 350px;
+    left: 20px;
+    background: #5b4a3b;
+    margin-top: 30px
+    
+    
+
+}
+  
+  .sidenav a {
+    padding: 10px 0px 8px 5px;
+    text-decoration: none;
+    font-size: 19px;
+    color: #ffffff;
+    display: block;
+}
+  
+  .sidenav a:hover {
+    color: #363738;
+}
+
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}

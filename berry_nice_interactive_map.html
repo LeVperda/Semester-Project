@@ -29,11 +29,8 @@
             });
         </script>
     </div>
-
-    <div class="map_description">
-      <h2>Interactive map is based on the berry data.</h2><h3>The dropdown menu selections will dynamically update the data on the map. Clicking on a region will bring up a table based on the selections.</h3>
-    </div>
-    <div class="col-3 col-s-3"> <text>Here you can see berry results from different regions'. </text></div>
+    <h1 class="map_h1">Interactive Berry Map</h1>
+    
     <div class="col-12  col-s-12 map-container" >
     <svg
     class = "col-4 col-s-4"
@@ -163,7 +160,7 @@
       onclick="showPopup('FI-19')" />
       <text id="FI-19T" class="maptext" x="90" y="740"></text>
  </svg>
- 
+ <div style="padding-left: 10px">
  <select id="berry-select" class="col-2">
    <option value="count">All Berries</option>
    <option value="bilberry">Bilberry</option>
@@ -180,11 +177,17 @@
    <option value="2022">2022</option>
  </select>
    <option></option>
-
- <div id="row_count"></div>  
- <table id="region_data"></table>
 </div>
 
+ <div id="row_count"></div>  
+ 
+<br><br>
+ <div class="col-4 col-s-4 map_description">
+   <text>Here you can see berry results that were gathered from different regions. To use the map, choose the wanted year and berry. This will show the amount of gathered data regionally on the map. <br><br>If you click a region, a table of data will open below with more detailed information. <br><br> If you want to update the table with new data, then please select data from the dropdown menu and click a region, and the new data will come up.</text>
+ </div>
+</div>
+
+<table class="map_table" id="region_data"></table>
 
 <script>
    let url = "http://localhost:5000/berry_data"

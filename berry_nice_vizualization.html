@@ -16,7 +16,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-    <title>Berry nice/showdata</title>
+    <title>Berry nice/Data Analytics</title>
 </head>
 
 <body>
@@ -32,10 +32,41 @@
             });
         </script>
     </div>
+    <div class="sidenav" onclick="topFunction()" id="myBtn">
+        <a href="#introduction">Introduction</a>
+        <a href="#original">Original Data</a>
+        <a href="#what">What Affects Berries?</a>
+        <a href="#history">Historical Weather Data</a>
+        <a href="#further">Further Research</a>
+        <a href="#conclusions">Conclusions</a>
+        <a href="#charts">Interactive Charts</a>
+    </div>
+<script>
+    let mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 250) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+</script>
+    <script>
+        var sidenav = document.querySelector('.sidebar');
+        var toggleBtn = document.querySelector('.toggle-btn');
+        
+        toggleBtn.addEventListener('click', function() {
+        sidebar.classList.toggle('active');
+        });
+    </script>
     <div class="col-8 col-s-8 research">
         <h1>Research</h1>
         <br>
-        <h3>Introduction</h3>
+        <h3 id="introduction">Introduction</h3>
         <p>
             This small research's idea is that we would take the whole journey from the beginning to the end with the readers and keep them interested for as much time as we could. 
             We've tried to make almost a detective story out of it.
@@ -62,112 +93,7 @@
         </p>
 
     </div>
-    <!--class will on full screen-->
-    <div class="col-12 col-s-12 data_intro">
-        <!--class will on 1-4 columns of the screen-->
-        <div class="col-4 col-s-4">
-            <div class="graph_buttons">
-                <!--selection for forest developement class-->
-                <label for="dev_class">Forest development class:</label>
-                <select name="dev_class" id="dev_class">
-                    <option value="all">value</option>
-                    <option value="clearing">clearing</option>
-                    <option value="seedling">seedling</option>
-                    <option value="old">old</option>
-                    <option value="plantation">plantation</option>
-                </select>
-                <br />
-                <br />
-                <!--selection for main_tree_type-->
-                <label for="main_tree_type">Main tree type:</label>
-                <select name="main_tree_type" id="main_tree_type">
-                    <option value="all">value</option>
-
-                    <option value="birch">birch</option>
-                    <option value="spruce">spruce</option>
-                    <option value="pine">pine</option>
-                    <option value="other">other</option>
-
-                    <option value="swamp">swamp</option>
-                    <option value="mixed">mixed</option>
-                    <option value="larch">larch</option>
-                    <option value="open">open</option>
-                </select>
-                <br />
-                <br />
-
-                <!--selection for date where the time BEGINS-->
-                <label>
-                    From what date:
-                    <input type="date" id="date_from" />
-                    <span for="date" class="validity"></span>
-                </label>
-                <br />
-                <br />
-                <!--selection for date where the time ENDS-->
-                <label>
-                    To what date:
-                    <input type="date" id="date_to" />
-                    <span for="date" class="validity"></span><br />
-
-                    <br />
-                    <br />
-
-                    <button onclick="filter()" type="button">Submit</button>
-                    <input type="reset" value="reset page" onclick="history.go(0)">
-                </label>
-            </div>
-        </div>
-
-        <div class="col-2 col-s-2">
-            <div class="graph_selector">
-                <!--selector buttons-->
-                <div>
-                    <h2>Charts:</h2>
-
-                    <br />
-                    Barplot: <button onclick="f_barplot()">Build</button><br />
-                    <br />
-                    Pieplot:<button onclick="f_pieChart()">Build</button>
-                </div>
-
-            </div>
-
-        </div>
-
-        <!--
-            <div class="col-2 col-s-2">
-            <div class="git_notebook">
-                <b>here is our notebook for more deeper analyzis</b>
-                <br>
-                <button id="on_git" onclick="show_on_git()">Submit</button>
-            </div>
-        -->
-        <div class="col-4 col-s-4">
-            <h2 id="all_data" style="text-align: center"></h2>
-            <h2 id="filtered_data" style="text-align: center"></h2>
-        </div>
-
-        <div class="col-12 col-s-12">
-            <div class="col-4 col-s-4">
-                <canvas id="barChart" class="charts"></canvas>
-            </div>
-
-            <div class="col-4 col-s-4">
-                <canvas id="pieChart" class="charts"></canvas>
-            </div>
-        </div>
-
-        </div>
-
-
-
-        <br>
-        <br>
-
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    </div>
+   
 
     <script>
         Get_data();
@@ -417,7 +343,7 @@
         }
     </script>
     <div class="col-8 col-s-8 research">
-        <h3>Original data</h3>
+        <h3 id="original">Original data</h3>
         <br>
         <p>
             As you could see, the original data is quite simple. 
@@ -515,7 +441,7 @@
         <br>
         <p>To answer these questions let's see what factors are able to have an influence in ripenin process </p>
         <br>
-        <h3>What can possibly affect the berries?</h3>
+        <h3 id="what">What can possibly affect the berries?</h3>
         <p>
             Searching for the answers to that questions we've faced <a href="https://www.arktisetaromit.fi/en/association/">The Arctic Flavours Association</a> webpage which has a lot of information about berries. 
             Using this information we can easily answer to questions which are habitat related. Let's deal with them.
@@ -549,7 +475,7 @@
             </ol>
         </p>
         <br>
-        <h3>Joining historical weather data</h3>
+        <h3 id="history">Joining historical weather data</h3>
         <p>Since the original data doesn't have any information about weather conditions, we've integrated data from <a href="https://www.visualcrossing.com/resources/documentation/weather-api/timeline-weather-api/">Visual Crossing Weather service</a>.</p>
         <br>
         <p>
@@ -657,7 +583,7 @@ Finnish Meteorological Institute
             All of this might have influence on the ripening of billberry. But the difference as well as the impact of such factors wasn't so huge as in 2019, for example.
         </p>
         <br>
-        <h3>Further research</h3>
+        <h3 id="further">Further research</h3>
         <p>
             One of the greatest factors having influence on ripening process of berries (and other flora) is pollinators presence. We believe that pollinators share with berries vulnerabilites to weather conditions.
             Insects usually prefer warm, sunny and sheltered from wind ares. Also they are vulnerable to pollution, human impact on natural habitat, invasive species and, according to the latest studies, light pollution.
@@ -686,15 +612,121 @@ Finnish Meteorological Institute
             </ol>
         </p>
         <br>
-        <h3>Conclusions</h3>
+        <h3 id="conclusions">Conclusions</h3>
         <p>
             During the research we've observed few factors having influence on berry growth. The impact could be positive, such as warmer temperature, comfortable humidity and sunlight, or negative such as subzero temperature, too dry or too humid periods. 
             We believe, that collecting more data about observations of different berries and integrating weather conditions data, pollution data and further collecting and researching pollinators data might have positive impact on our understanding of our ecosystem and it's future.
             That's why came up with <a href="berry_nice_insert_data_page.html">data collection page</a> in out project.
         </p>
     </div>
-        
+     <!--class will on full screen-->
+     <div class="col-12 col-s-12 data_intro">
+        <h1 id="charts">Interactive Charts</h1>
+        <!--class will on 1-4 columns of the screen-->
+        <div class="col-4 col-s-4">
+            <div class="graph_buttons">
+                <!--selection for forest developement class-->
+                <label for="dev_class">Forest development class:</label>
+                <select name="dev_class" id="dev_class">
+                    <option value="all">value</option>
+                    <option value="clearing">clearing</option>
+                    <option value="seedling">seedling</option>
+                    <option value="old">old</option>
+                    <option value="plantation">plantation</option>
+                </select>
+                <br />
+                <br />
+                <!--selection for main_tree_type-->
+                <label for="main_tree_type">Main tree type:</label>
+                <select name="main_tree_type" id="main_tree_type">
+                    <option value="all">value</option>
 
+                    <option value="birch">birch</option>
+                    <option value="spruce">spruce</option>
+                    <option value="pine">pine</option>
+                    <option value="other">other</option>
+
+                    <option value="swamp">swamp</option>
+                    <option value="mixed">mixed</option>
+                    <option value="larch">larch</option>
+                    <option value="open">open</option>
+                </select>
+                <br />
+                <br />
+
+                <!--selection for date where the time BEGINS-->
+                <label>
+                    From what date:
+                    <input type="date" id="date_from" />
+                    <span for="date" class="validity"></span>
+                </label>
+                <br />
+                <br />
+                <!--selection for date where the time ENDS-->
+                <label>
+                    To what date:
+                    <input type="date" id="date_to" />
+                    <span for="date" class="validity"></span><br />
+
+                    <br />
+                    <br />
+
+                    <button onclick="filter()" type="button">Submit</button>
+                    <input type="reset" value="reset page" onclick="history.go(0)">
+                </label>
+            </div>
+        </div>
+
+        <div class="col-2 col-s-2">
+            <div class="graph_selector">
+                <!--selector buttons-->
+                <div>
+                    <h2>Charts:</h2>
+
+                    <br />
+                    Barplot: <button onclick="f_barplot()">Build</button><br />
+                    <br />
+                    Pieplot:<button onclick="f_pieChart()">Build</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--
+            <div class="col-2 col-s-2">
+            <div class="git_notebook">
+                <b>here is our notebook for more deeper analyzis</b>
+                <br>
+                <button id="on_git" onclick="show_on_git()">Submit</button>
+            </div>
+        -->
+        <div class="col-4 col-s-4">
+            <h2 id="all_data" style="text-align: center"></h2>
+            <h2 id="filtered_data" style="text-align: center"></h2>
+        </div>
+
+        <div class="col-12 col-s-12">
+            <div class="col-4 col-s-4">
+                <canvas id="barChart" class="charts"></canvas>
+            </div>
+
+            <div class="col-4 col-s-4">
+                <canvas id="pieChart" class="charts"></canvas>
+            </div>
+        </div>
+
+        </div>
+
+
+
+        <br>
+        <br>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    </div>
+    
     <footer>
         <h2>Useful links</h2>
         <ul>
