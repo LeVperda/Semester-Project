@@ -37,7 +37,8 @@
         <br>
         <h3>Introduction</h3>
         <p>
-            This small research idea is that we would take the whole journey from the beginning to the end with the readers and keep them interested for as much time as we could. We've tried to make almsot a detective story out of it.
+            This small research's idea is that we would take the whole journey from the beginning to the end with the readers and keep them interested for as much time as we could. 
+            We've tried to make almost a detective story out of it.
         </p> 
         <p>
             At this page you can see our logic, our questions and the way how we were thinking during the research.
@@ -134,12 +135,14 @@
 
         </div>
 
-        <div class="col-2 col-s-2">
+        <!--
+            <div class="col-2 col-s-2">
             <div class="git_notebook">
                 <b>here is our notebook for more deeper analyzis</b>
                 <br>
                 <button id="on_git" onclick="show_on_git()">Submit</button>
             </div>
+        -->
 
         </div>
 
@@ -419,7 +422,14 @@
         <br>
         <p>
             As you could see, the original data is quite simple. 
-            Based on it we could say that some berries like some trees more than others. 
+            Based on it we could say that some berries like some trees more than others. <br><i> By the way, remember when we mentioned about lackind data? Here is one of the problems:
+            in this dataset we have data on nearby growing trees and forest development class. But we have information about only less than 1000 observations from which even less are unique locations.
+            We've decided not to use this information, because on such short run we can't say for sure if something is an exception or some kind of local peculiarity.</i>
+        </p>
+        <p>
+
+        </p>
+        <p> 
             Also we could build few charts using which we could visualize proportions of berries and trees (you just did in the previous section).
             <br>
             And, since we have the coordinates, we could visualize location of berries.
@@ -469,7 +479,7 @@
                 At a same time, lingonberry was not affected.
             </li>
             <li>
-                In 2021 and 2022 something has affected bilberry and cloudebrry so that bilberry yield was weaker in 2021 and greater in 2022 and opposite for cloudberry.
+                In 2021 something has affected bilberry yield, which was weaker than 2022 or 2020
             </li>
             <li>
                 Amount of lingonberry just keep growing.
@@ -500,7 +510,7 @@
             <li>Why middle Finland almost doesn't have any bilberry?</li>
             <li>What happened in 2018 when all berries suddenly got ripe way more yearlier than usually</li>
             <li>What has affected bilberries and cloudberries but not linognberries in 2019?</li>
-            <li>What conditions have affected bilberry and cloudberry in opposite ways in 2021 and 2022?</li>
+            <li>What conditions have affected bilberry 2021</li>
             <li>Why amount of lingonberry observations keeps growing?</li>
         </ul>
         <br>
@@ -617,9 +627,72 @@ Finnish Meteorological Institute
         <br>
         <p>If we've already started to speak about humidity, let's take a look on historical data of rains:</p>
         <div class="img_container">
-            <img src="images/visuliazation_page/rains_bar.png" alt="">
+            <img src="images/visuliazation_page/precip.png" alt="">
         </div>
-        
+        <p>
+            Plot displays yearly average precipitation level. 
+            Funny thing, While the overall air humidity of 2019 was on the almsot same level with other years(and, for example, even greater than 2018) we can see that average level of precipitation in 2019 was more than 2 times lower compared to other years.
+        </p>
+        <br>
+        <p>Another factor that could have influence is cloudcover. On next plot you can see yearly cloudcover. Remember that the more cloudcover - the less direct sunlight.</p>
+        <div class="img_container">
+            <img src="images/visuliazation_page/cloudcover.png" alt="">
+        </div>
+        <p>
+            2019 was not so sunny as 2018, but compared to 2020, the difference is not so great. Average daily cloudcover on about same level, but 2019 has wider density of values.
+            Also 2021 looks a little bit sunny than neighbours.
+        </p>
+        <br>
+        <p>
+            Now it seems that we have enough information to solve our other mysteries as well, let's try to start with the 2019 question. So, why back in 2019 amount of obseravations of the bilberry collapsed as well as amount of cloudberry observations decrease (but not so dramatically), while lingonberry was not affected at all?
+            We believe that:
+            <ol class="txt_list">
+                <li>Bilberry and cloudberry are sensitive to cold nights and subzero temperatures, and as we've noticed 2019 was quite cold and even freezing sometimes.</li>
+                <li>In complex with that, the amount of rains was not so great in 2019, which could affect bilberries dramatically, since they are vulnerable to dry periods.</li>
+                <li>Lingonberry is a stronger one. It's seems to be not so heavily affected by weather conditions. Also it's flowering period is few later compared to other berries, and the weather in July-August seems to be more friendly.</li>
+            </ol>
+        </p>
+        <br>
+        <p>
+            Almost the same answers we have for 2021 as well. If you remember, in 2021 amount of bilberries slightly decreased. 2021 was a little bit colder, had more sunny days, less humidity and less rains. 
+            All of this might have influence on the ripening of billberry. But the difference as well as the impact of such factors wasn't so huge as in 2019, for example.
+        </p>
+        <br>
+        <h3>Further research</h3>
+        <p>
+            One of the greatest factors having influence on ripening process of berries (and other flora) is pollinators presence. We believe that pollinators share with berries vulnerabilites to weather conditions.
+            Insects usually prefer warm, sunny and sheltered from wind ares. Also they are vulnerable to pollution, human impact on natural habitat, invasive species and, according to the latest studies, light pollution.
+        </p>
+        <p>
+            We've taken a look on wind speed and direction data, but there were no strong correlations between those and amount of observations' amount. So the influence of wind can be less than we expected. 
+            For example we believe that in forests insects might have enough places to hide from wind as well as a wind itself is not strong deep in forest.
+        </p>
+        <p>
+            We've checked light pollution as well. 
+            There are studies that say that artificial light at night disrupts pollinators' circadian rhytms as well as their life patterns.
+            <a href="https://www.lightpollutionmap.info/#zoom=4.41&lat=62.4868&lon=22.9037&state=eyJiYXNlbWFwIjoiTGF5ZXJCaW5nUm9hZCIsIm92ZXJsYXkiOiJ3YV8yMDE1Iiwib3ZlcmxheWNvbG9yIjpmYWxzZSwib3ZlcmxheW9wYWNpdHkiOjYwLCJmZWF0dXJlc29wYWNpdHkiOjg1fQ==">Light pollution map</a> tells us that in 2019 artificial light's raddiance sum is aproximately 660,000 while in 2018 500,000 and 540,000 in 2020.
+            <div class="img_container">
+                <img src="images/visuliazation_page/light_pollution.png" alt="">
+            </div>
+            <div class="img_container">
+                <img src="images/visuliazation_page/light_map.png" alt="">
+            </div>
+            This map represents light pollution situation in 2018(one the left) and 2019(on the right). You can notice that light pollution slightly increased, which could affect amount of pollinators and them in turn affected flowering process of berries in 2019.
+            But, we suppose that it's only a coincidence. There are few problems with light pollution's influence in Finland.
+            <ol class="txt_list">
+                <li>The data from light pollution observation services usually shows radiance sum per year, while the only periood we need is summer.</li>
+                <li>Since summer in Finland is quite bright anyways because of the long sunlight day, we don't think that some artificial lights could heavily affect pollinators. But it might be a problem for Southern countries, where pollinators are present during the whole year and day-night rhytm is more clear.</li>
+                <li>A large part of Finland lies at latitudes where high aurora activity is present which can have a strong influence on radiance values</li>
+                <li>Even if the radiance values are high near the cities, most part of the country is still not affected by artificial lights due to population density in Finland</li>
+            </ol>
+        </p>
+        <br>
+        <h3>Conclusions</h3>
+        <p>
+            During the research we've observed few factors having influence on berry growth. The impact could be positive, such as warmer temperature, comfortable humidity and sunlight, or negative such as subzero temperature, too dry or too humid periods. 
+            We believe, that collecting more data about observations of different berries and integrating weather conditions data, pollution data and further collecting and researching pollinators data might have positive impact on our understanding of our ecosystem and it's future.
+            That's why came up with <a href="berry_nice_insert_data_page.html">data collection page</a> in out project.
+        </p>
     </div>
         
 
