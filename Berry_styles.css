@@ -556,3 +556,7 @@ svg {
   .tooltip:hover .tooltiptext {
     visibility: visible;
   }
+
+  table {
+    border: none;
+  }
