@@ -153,9 +153,11 @@ footer a:hover{
 
 /*youtube video*/
 iframe {
-    float:left;
+    float:right;
     overflow:hidden;
+    margin-top: 10%;
 }
+
 
 /* Table settings */
 
@@ -240,35 +242,19 @@ form {
 
 
 .berry{    /*logo in about us*/
-    align-items: middle;
-    width: 50%;
-    margin:auto;
-}
-/*About us intro*/
-.agenda{
-    float: left;
-    padding: 50px 200px;
     
-}
-
-.intro{ /*the info text*/
-    position: center;
-    padding: 20px
+   align-items: center;
 
 }
 
-/*Our goals and values text*/
-.values{
-  padding: 20px;
-}
 
-.goals{
-    
-    padding:10px; 
+.about_box{
+    align-items: center;
     background-color: #bcdacf90;
-    position:center;
-    padding:50px 200px; 
-    width:70%;
+    padding: 50px 100px;
+    margin: auto;
+    margin-top: 50px;
+
     
 }
 
@@ -381,7 +367,7 @@ form {
 /*Text inside the hoverable pic*/
 .text {
 
-    color: white;
+    color: rgb(33, 30, 30);
     font-size: 20px;
     position: absolute;
     top: 50%;
@@ -483,8 +469,9 @@ a{
     to {opacity: 1}
 }
 
-.vision{
-    padding: 50px
+.home{
+    padding-left: 10%;
+    
 }
 
 /*settings for canvas*/
@@ -524,7 +511,8 @@ svg {
 
 /*Data analytics page, section with interactive charts and data selection*/
 .research {
-    padding: 50px;
+    p
+    border: 1px solid rgb(33, 30, 30)
 }
 .data_intro {
     border: 1px solid black;
