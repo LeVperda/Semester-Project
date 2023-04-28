@@ -17,6 +17,10 @@ Hansa Pankow – Frontend development, text content creator, designer.
 
 ---------------------------------------------------------------------------
 
+Video presentation link:
+https://www.youtube.com/watch?v=2j8Umjbrwjg
+
+---------------------------------------------------------------------------
 
 How to use MySQL Server
 
