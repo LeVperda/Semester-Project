@@ -1,6 +1,22 @@
 # Semester Project
  MLDE22 Semester Project, Spring 2023
 
+----------------------------------------------------------------------------
+
+PROJECT MEMBERS AND RESPONSIBILITIES:
+
+Niko Puro – Project management, developing backend part, created HTML page frames, databases, data collection page, interactive part of data analytics page. 
+
+Kirill Sobolev – Most part of data analytics and visualization. 
+
+Nikita Petrov – Interactive map, backend, setting up the MySQL server, video presentation script, editing and filming 
+
+Vy Ngo – Frontend development, video presentation filming, project chairman, text content creator 
+
+Hansa Pankow – Frontend development, text content creator, designer. 
+
+---------------------------------------------------------------------------
+
 
 How to use MySQL Server
 
