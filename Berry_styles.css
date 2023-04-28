@@ -541,9 +541,9 @@ svg {
     
     display: inline-block;
     float:right;
-  }
+}
   
-  .tooltip .tooltiptext {
+.tooltip .tooltiptext {
     visibility: hidden;
     width: 390px;
     background-color: black;
@@ -557,17 +557,17 @@ svg {
     position: absolute;
     float:right;
     z-index: 1;
-  }
+}
   
-  .tooltip:hover .tooltiptext {
+.tooltip:hover .tooltiptext {
     visibility: visible;
-  }
+}
 
-  table {
+table {
     border: none;
-  }
+}
 
-  .map_description{
+.map_description{
     position: relative;
     float: left;
     background-color: #127c678c;
@@ -590,15 +590,15 @@ svg {
     position: fixed;
     z-index: 1;
     height: 350px;
-    left: 20px;
-    background: #5b4a3b;
+    
+    background: #07493b;
     margin-top: 30px
     
     
 
 }
   
-  .sidenav a {
+.sidenav a {
     padding: 10px 0px 8px 5px;
     text-decoration: none;
     font-size: 19px;
@@ -606,12 +606,12 @@ svg {
     display: block;
 }
   
-  .sidenav a:hover {
+.sidenav a:hover {
     color: #363738;
 }
 
   
-  @media screen and (max-height: 450px) {
+@media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
 }

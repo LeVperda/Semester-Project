@@ -123,6 +123,13 @@ def posting_berry_data(data):
     mval = (region,)
     mycursor.execute(msql, mval)
 
+    region_codes = {'Lapland': 'FI-10T', 'Northern Ostrobothnia': 'FI-14T', 'Kainuu': 'FI-05T', 'Southern Savonia': 'FI-04T', 'Central Finland': 'FI-08T', 'North Karelia': 'FI-13T', 'Pirkanmaa': 'FI-11T', 'Southern Ostrobothnia': 'FI-03T', 'Northern Savo': 'FI-15T', 'Varsinais-Suomi': 'FI-19T', 'Uusimaa': 'FI-18T', 'South Karelia': 'FI-02T', 'Paijanne Tavastia': 'FI-16T', 'Central Ostrobothnia': 'FI-07T', 'Haeme': 'FI-06T', 'Satakunta': 'FI-17T', 'Kymenlaakso': 'FI-09T', 'Ostrobothnia': 'FI-12T'}
+
+    for x, y in region_codes.items():
+        sql = "UPDATE berries SET html_id = %s WHERE region = %s"
+        val = (y, x)
+        mycursor.execute(sql, val)
+
     # commit
     mydb.commit()
 
