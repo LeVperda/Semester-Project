@@ -31,7 +31,8 @@ IP: 154.49.137.221
 remote connection via Terminal:
 - ssh root@154.49.137.221
 
-All the root passwords (OS and MySQL) are: CheeseTax69
+All the root passwords (OS and MySQL) are: ***********
+Please message project members privately if access is needed
 
 I have duplicated the python scripts for this server, the originals are still there, untouched. 
 There is now a copy of each script, with "_server_" added to the end.
