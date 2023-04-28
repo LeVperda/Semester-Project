@@ -470,8 +470,9 @@ a{
 }
 
 .home{
-    padding-left: 10%;
-    
+   padding-left: 30px;
+    background-color: #92bec49b;
+   
 }
 
 /*settings for canvas*/
@@ -573,11 +574,7 @@ svg {
     border: 1px solid #050505;
     margin:auto;
   }
-.map_table{
-    width: 100px
-    position: fixed;
-    float: right;
-}
+
 
 .map_h1{
     text-align: center; 
